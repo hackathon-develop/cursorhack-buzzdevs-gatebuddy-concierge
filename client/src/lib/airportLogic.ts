@@ -36,23 +36,24 @@ export interface Gate {
 }
 
 export interface UserPreferences {
-  budget: 1 | 2 | 3; // €, €€, €€€
+  budget?: 1 | 2 | 3; // €, ££, €€€
   foodType?: string;
   dietary?: string[];
   mealType?: 'quick-bite' | 'sit-down';
-  mobility: 'normal' | 'reduced';
-  loungeAccess: boolean;
+  mobility?: 'normal' | 'reduced';
+  loungeAccess?: boolean;
   customPreferences?: string;
 }
 
 export interface TripDetails {
-  arrivalTime: Date;
+  arrivalTime?: Date;
   terminal: string;
   arrivingGate?: string;
   nextFlightTime?: Date;
-  gateNumber?: string;
+  gateNumber: string;
   isDomestic: boolean;
   hasBaggage?: boolean;
+  hasNextFlight?: boolean;
   currentZone?: string;
 }
 
@@ -168,7 +169,7 @@ export function recommend_pois(
   
   let filtered = pois.filter(poi => {
     // Filter by budget
-    if (poi.priceLevel > preferences.budget) return false;
+    if (preferences.budget && poi.priceLevel > preferences.budget) return false;
     
     // Filter by dietary restrictions (only if specified)
     // Show all options but prioritize matching ones in sorting
@@ -293,7 +294,7 @@ export function build_timeline(
   selectedPOIs: POI[] = []
 ): TimelineStep[] {
   const timeline: TimelineStep[] = [];
-  let currentTime = new Date(tripDetails.arrivalTime);
+  let currentTime = new Date(tripDetails.arrivalTime || new Date());
   
   // Determine starting location
   const startZoneId = tripDetails.isDomestic 

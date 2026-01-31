@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useApp } from '@/contexts/AppContext';
-import { Onboarding } from '@/components/Onboarding';
+import Onboarding from '@/components/Onboarding';
 import { ChatInterface } from '@/components/ChatInterface';
 import { TimelineView } from '@/components/TimelineView';
 import { POICard } from '@/components/POICard';
@@ -106,12 +106,19 @@ export default function Home() {
       })
       .slice(0, 2);
     
-    const timeline = build_timeline(tripDetails, preferences, selectedPOIs);
+    const timeline = build_timeline(
+      { ...tripDetails, arrivalTime: new Date() },
+      preferences,
+      selectedPOIs
+    );
     setTimeline(timeline);
 
     completeOnboarding();
 
-    addMessage('assistant', `Welcome to Nova Europa International! I've created your personalized action plan. You have ${Math.floor((tripDetails.nextFlightTime?.getTime() || 0 - new Date().getTime()) / 60000)} minutes until boarding. Ask me anything about food, shops, or facilities.`);
+    const minutesUntilFlight = tripDetails.nextFlightTime 
+      ? Math.floor((tripDetails.nextFlightTime.getTime() - new Date().getTime()) / 60000)
+      : 0;
+    addMessage('assistant', `Welcome to Nova Europa International! I've created your personalized action plan. You have ${minutesUntilFlight} minutes until boarding. Ask me anything about food, shops, or facilities.`);
   };
 
   const handleResetApp = () => {
