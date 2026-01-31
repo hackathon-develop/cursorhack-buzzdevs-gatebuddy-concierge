@@ -85,15 +85,29 @@ export default function Home() {
     setTripDetails(tripDetails);
     setPreferences(preferences);
 
-    const timeline = build_timeline(tripDetails, preferences);
-    setTimeline(timeline);
-
+    // Get recommended POIs based on preferences
     const nearbyPOIs = recommend_pois(
       { x: 0, y: 0, terminal: tripDetails.terminal },
       preferences,
       new Date()
     );
     setNearbyPOIs(nearbyPOIs);
+
+    // Include top recommended POIs in the timeline (up to 2 POIs based on available time)
+    const timeUntilBoarding = tripDetails.nextFlightTime 
+      ? Math.floor((tripDetails.nextFlightTime.getTime() - new Date().getTime()) / 60000)
+      : 120;
+    
+    // Select POIs that fit in the available time
+    const selectedPOIs = nearbyPOIs
+      .filter(poi => {
+        const poiWithTime = poi as any;
+        return ((poiWithTime.travelTime || 0) + (poiWithTime.totalTime || 0)) < (timeUntilBoarding - 60);
+      })
+      .slice(0, 2);
+    
+    const timeline = build_timeline(tripDetails, preferences, selectedPOIs);
+    setTimeline(timeline);
 
     completeOnboarding();
 
