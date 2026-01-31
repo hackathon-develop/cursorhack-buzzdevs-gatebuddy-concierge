@@ -384,9 +384,9 @@ export function build_timeline(
   // Step 4: Boarding process (if next flight exists)
   // Boarding starts 50 minutes before flight and ends 15 minutes before flight
   if (tripDetails.nextFlightTime) {
-    const boardingStartTime = new Date(tripDetails.nextFlightTime.getTime() - 50 * 60000);
+    const boardingStartTime = new Date(tripDetails.nextFlightTime.getTime() - 30 * 60000);
     const boardingEndTime = new Date(tripDetails.nextFlightTime.getTime() - 15 * 60000);
-    const boardingDuration = 35; // 50 - 15 = 35 minutes
+    const boardingDuration = 15; // 30 - 15 = 15 minutes
     
     timeline.push({
       id: 'boarding',
