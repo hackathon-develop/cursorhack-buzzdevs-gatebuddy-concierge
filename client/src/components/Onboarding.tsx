@@ -15,16 +15,13 @@ interface OnboardingProps {
 
 // Gate options by terminal
 const gateOptions: Record<string, string[]> = {
-  'T1': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12'],
-  'T2': ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13', 'C14', 'C15', 'C16'],
-  'T3': ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10'],
+  'T1': ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'],
 };
 
 export default function Onboarding({ onComplete }: OnboardingProps) {
   const [step, setStep] = useState(1);
-  const [arrivalTerminal, setArrivalTerminal] = useState('T1');
   const [arrivingGate, setArrivingGate] = useState('');
-  const [departureTerminal, setDepartureTerminal] = useState('T1');
+  const TERMINAL = 'T1'; // Single terminal only
   const [departureGate, setDepartureGate] = useState('');
   const [isDomestic, setIsDomestic] = useState(false);
   const [hasBaggage, setHasBaggage] = useState(false);
@@ -61,7 +58,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
     }
 
     const trip: TripDetails = {
-      terminal: departureTerminal,
+      terminal: TERMINAL,
       arrivingGate: arrivingGate || 'Unknown',
       gateNumber: departureGate.toUpperCase(),
       isDomestic,
@@ -122,23 +119,6 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
             {/* Step 1: Trip Details */}
             {step === 1 && (
               <div className="space-y-4 sm:space-y-6 mt-6">
-                {/* Arrival Terminal */}
-                <div className="space-y-2">
-                  <Label htmlFor="arrivalTerminal" className="text-sm sm:text-base font-semibold">
-                    Arrival terminal
-                  </Label>
-                  <Select value={arrivalTerminal} onValueChange={setArrivalTerminal}>
-                    <SelectTrigger id="arrivalTerminal" className="h-10 sm:h-12">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="T1">Terminal 1</SelectItem>
-                      <SelectItem value="T2">Terminal 2</SelectItem>
-                      <SelectItem value="T3">Terminal 3</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
                 {/* Arrival Gate */}
                 <div className="space-y-2">
                   <Label htmlFor="arrivingGate" className="text-sm sm:text-base font-semibold">
@@ -149,28 +129,11 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                       <SelectValue placeholder="Select a gate" />
                     </SelectTrigger>
                     <SelectContent>
-                      {gateOptions[arrivalTerminal]?.map((gate) => (
+                      {gateOptions[TERMINAL]?.map((gate) => (
                         <SelectItem key={gate} value={gate}>
                           {gate}
                         </SelectItem>
                       ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Departure Terminal */}
-                <div className="space-y-2">
-                  <Label htmlFor="departureTerminal" className="text-sm sm:text-base font-semibold">
-                    Departure terminal
-                  </Label>
-                  <Select value={departureTerminal} onValueChange={setDepartureTerminal}>
-                    <SelectTrigger id="departureTerminal" className="h-10 sm:h-12">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="T1">Terminal 1</SelectItem>
-                      <SelectItem value="T2">Terminal 2</SelectItem>
-                      <SelectItem value="T3">Terminal 3</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -185,7 +148,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                       <SelectValue placeholder="Select a gate" />
                     </SelectTrigger>
                     <SelectContent>
-                      {gateOptions[departureTerminal]?.map((gate) => (
+                      {gateOptions[TERMINAL]?.map((gate) => (
                         <SelectItem key={gate} value={gate}>
                           {gate}
                         </SelectItem>
