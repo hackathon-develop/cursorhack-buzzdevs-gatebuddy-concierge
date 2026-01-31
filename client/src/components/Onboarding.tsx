@@ -43,6 +43,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     if (hasNextFlight && nextFlightTime) {
       const now = new Date();
       const flightTime = new Date(now.toDateString() + ' ' + nextFlightTime);
+      
+      // If flight time is earlier than current time, it must be tomorrow
+      if (flightTime.getTime() < now.getTime()) {
+        flightTime.setDate(flightTime.getDate() + 1);
+      }
+      
       const minutesUntil = Math.floor((flightTime.getTime() - now.getTime()) / 60000);
       setTimeUntilFlight(minutesUntil);
 
@@ -80,13 +86,20 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   const handleComplete = () => {
     const now = new Date();
     
+    let flightDateTime: Date | undefined = undefined;
+    if (hasNextFlight && nextFlightTime) {
+      flightDateTime = new Date(now.toDateString() + ' ' + nextFlightTime);
+      // If flight time is earlier than current time, it must be tomorrow
+      if (flightDateTime.getTime() < now.getTime()) {
+        flightDateTime.setDate(flightDateTime.getDate() + 1);
+      }
+    }
+    
     const tripDetails: TripDetails = {
       arrivalTime: now,
       terminal,
       isDomestic,
-      nextFlightTime: hasNextFlight && nextFlightTime 
-        ? new Date(now.toDateString() + ' ' + nextFlightTime)
-        : undefined,
+      nextFlightTime: flightDateTime,
       gateNumber: gateNumber || undefined,
     };
 
