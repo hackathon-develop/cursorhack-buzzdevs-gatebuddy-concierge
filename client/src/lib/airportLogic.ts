@@ -415,9 +415,10 @@ export function build_timeline(
       const remainingSteps = timeline.slice(index + 1);
       const remainingTime = remainingSteps.reduce((sum, s) => sum + s.travelTime + s.duration, 0);
       
-      if (timeUntilBoarding < remainingTime) {
+      // New thresholds: risky < 15 min, tight < 30 min, safe >= 30 min
+      if (timeUntilBoarding < 15) {
         step.status = 'risky';
-      } else if (timeUntilBoarding < remainingTime + 15) {
+      } else if (timeUntilBoarding < 30) {
         step.status = 'tight';
       } else {
         step.status = 'safe';
