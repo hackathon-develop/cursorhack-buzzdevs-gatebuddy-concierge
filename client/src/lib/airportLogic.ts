@@ -167,22 +167,11 @@ export function recommend_pois(
     // Filter by budget
     if (poi.priceLevel > preferences.budget) return false;
     
-    // Filter by dietary restrictions
-    if (preferences.dietary && preferences.dietary.length > 0) {
-      const hasDietaryMatch = preferences.dietary.some(diet => 
-        poi.tags.includes(diet.toLowerCase())
-      );
-      if (poi.category === 'restaurant' || poi.category === 'cafe') {
-        if (!hasDietaryMatch) return false;
-      }
-    }
+    // Filter by dietary restrictions (only if specified)
+    // Show all options but prioritize matching ones in sorting
     
-    // Filter by meal type
-    if (preferences.mealType) {
-      if (poi.category === 'restaurant' || poi.category === 'cafe') {
-        if (!poi.tags.includes(preferences.mealType)) return false;
-      }
-    }
+    // Filter by meal type (only if specified)
+    // Show all options but prioritize matching ones in sorting
     
     // Filter by lounge access
     if (preferences.loungeAccess && poi.category === 'lounge') {
@@ -219,10 +208,34 @@ export function recommend_pois(
     recommended = poisWithTime.filter(poi => poi.totalTime <= availableTime);
   }
   
-  // Sort by total time (closest and fastest first)
-  recommended.sort((a, b) => a.totalTime - b.totalTime);
+  // Sort by relevance: dietary match, meal type match, then total time
+  recommended.sort((a, b) => {
+    // Calculate match scores
+    let scoreA = 0;
+    let scoreB = 0;
+    
+    // Dietary preference match (higher priority)
+    if (preferences.dietary && preferences.dietary.length > 0) {
+      const hasMatchA = preferences.dietary.some(diet => a.tags.includes(diet.toLowerCase()));
+      const hasMatchB = preferences.dietary.some(diet => b.tags.includes(diet.toLowerCase()));
+      if (hasMatchA) scoreA += 1000;
+      if (hasMatchB) scoreB += 1000;
+    }
+    
+    // Meal type match
+    if (preferences.mealType) {
+      if (a.tags.includes(preferences.mealType)) scoreA += 500;
+      if (b.tags.includes(preferences.mealType)) scoreB += 500;
+    }
+    
+    // Subtract time to prioritize faster options
+    scoreA -= a.totalTime;
+    scoreB -= b.totalTime;
+    
+    return scoreB - scoreA; // Higher score first
+  });
   
-  return recommended.slice(0, 10); // Return top 10
+  return recommended.slice(0, 20); // Return top 20
 }
 
 /**
@@ -236,11 +249,36 @@ export function getZoneCoordinates(zoneId: string): { x: number; y: number; term
 
 /**
  * Get gate coordinates by gate ID
+ * Gates are located in gate zones, so we estimate based on gate number
  */
 export function getGateCoordinates(gateId: string): { x: number; y: number; terminal: string } | null {
-  const gate = (airportData.gates as Gate[]).find(g => g.id === gateId);
-  if (!gate) return null;
-  return { x: gate.x, y: gate.y, terminal: gate.terminal };
+  // Extract terminal and gate number from gate ID (e.g., "A12", "B5", "C20")
+  const match = gateId.match(/^([A-Z])(\d+)$/);
+  if (!match) return null;
+  
+  const pier = match[1];
+  const gateNum = parseInt(match[2]);
+  
+  // Map piers to terminals and zones
+  const pierMap: Record<string, { terminal: string; zoneId: string }> = {
+    'A': { terminal: 'T1', zoneId: 't1-gates-a' },
+    'B': { terminal: 'T1', zoneId: 't1-gates-b' },
+    'C': { terminal: 'T2', zoneId: 't2-gates-c' },
+    'D': { terminal: 'T3', zoneId: 't3-gates-d' },
+  };
+  
+  const pierInfo = pierMap[pier];
+  if (!pierInfo) return null;
+  
+  const zone = getZoneCoordinates(pierInfo.zoneId);
+  if (!zone) return null;
+  
+  // Add small offset based on gate number for variety
+  return {
+    x: zone.x + (gateNum % 5) * 5,
+    y: zone.y + Math.floor(gateNum / 5) * 3,
+    terminal: pierInfo.terminal
+  };
 }
 
 /**
