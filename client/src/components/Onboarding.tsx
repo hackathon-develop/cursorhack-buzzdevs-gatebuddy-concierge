@@ -26,6 +26,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   const [hasNextFlight, setHasNextFlight] = useState(true);
   const [nextFlightTime, setNextFlightTime] = useState('');
   const [gateNumber, setGateNumber] = useState('');
+  const [selectedTime, setSelectedTime] = useState<number | null>(null);
   
   // Preferences state
   const [preferencesText, setPreferencesText] = useState('');
@@ -117,6 +118,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     const now = new Date();
     const future = new Date(now.getTime() + hours * 60 * 60 * 1000);
     setNextFlightTime(future.toTimeString().slice(0, 5));
+    setSelectedTime(hours);
   };
 
   // Validation
@@ -301,7 +303,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     <div className="flex gap-2">
                       <Button
                         type="button"
-                        variant="outline"
+                        variant={selectedTime === 1 ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setQuickTime(1)}
                         className="flex-1 text-xs sm:text-sm"
@@ -310,7 +312,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </Button>
                       <Button
                         type="button"
-                        variant="outline"
+                        variant={selectedTime === 2 ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setQuickTime(2)}
                         className="flex-1 text-xs sm:text-sm"
@@ -319,7 +321,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </Button>
                       <Button
                         type="button"
-                        variant="outline"
+                        variant={selectedTime === 4 ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setQuickTime(4)}
                         className="flex-1 text-xs sm:text-sm"
@@ -334,7 +336,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                         id="flightTime"
                         type="time"
                         value={nextFlightTime}
-                        onChange={(e) => setNextFlightTime(e.target.value)}
+                        onChange={(e) => {
+                          setNextFlightTime(e.target.value);
+                          setSelectedTime(null);
+                        }}
                         placeholder="Or enter exact time"
                         className="h-10 sm:h-12 text-sm sm:text-base"
                       />
