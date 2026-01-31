@@ -18,8 +18,23 @@ const gateOptions: Record<string, string[]> = {
   'T1': ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'],
 };
 
+// Fun airport names
+const airportNames = [
+  'Nova Europa International',
+  'Skyward Horizons',
+  'Cloud Nine Terminal',
+  'Wanderlust Wings',
+  'Jetstream Junction',
+  'Paradise Gateway',
+  'Velocity Valley',
+  'Compass Rose International',
+  'Stellar Skies',
+  'Voyage Vortex',
+];
+
 export default function Onboarding({ onComplete }: OnboardingProps) {
   const [step, setStep] = useState(1);
+  const [airportName, setAirportName] = useState('');
   const [arrivingGate, setArrivingGate] = useState('');
   const TERMINAL = 'T1'; // Single terminal only
   const [departureGate, setDepartureGate] = useState('');
@@ -40,6 +55,10 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   };
 
   const handleComplete = () => {
+    if (!airportName.trim()) {
+      setShowError('Please select an airport');
+      return;
+    }
     if (!departureGate.trim()) {
       setShowError('Please select your departure gate');
       return;
@@ -119,6 +138,25 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
             {/* Step 1: Trip Details */}
             {step === 1 && (
               <div className="space-y-4 sm:space-y-6 mt-6">
+                {/* Airport Name */}
+                <div className="space-y-2">
+                  <Label htmlFor="airportName" className="text-sm sm:text-base font-semibold">
+                    Airport <span className="text-red-500">*</span>
+                  </Label>
+                  <Select value={airportName} onValueChange={setAirportName}>
+                    <SelectTrigger id="airportName" className="h-10 sm:h-12">
+                      <SelectValue placeholder="Select an airport" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {airportNames.map((name) => (
+                        <SelectItem key={name} value={name}>
+                          {name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 {/* Arrival Gate */}
                 <div className="space-y-2">
                   <Label htmlFor="arrivingGate" className="text-sm sm:text-base font-semibold">
