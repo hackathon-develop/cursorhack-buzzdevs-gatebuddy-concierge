@@ -411,14 +411,17 @@ export function build_timeline(
       const stepEndTime = new Date(step.startTime.getTime() + (step.travelTime + step.duration) * 60000);
       const timeUntilBoarding = (boardingTime.getTime() - stepEndTime.getTime()) / 60000;
       
-      // Calculate remaining steps time
+      // Calculate remaining steps time (time needed for remaining activities)
       const remainingSteps = timeline.slice(index + 1);
-      const remainingTime = remainingSteps.reduce((sum, s) => sum + s.travelTime + s.duration, 0);
+      const timeNeededForRemaining = remainingSteps.reduce((sum, s) => sum + s.travelTime + s.duration, 0);
       
-      // New thresholds: risky < 15 min, tight < 30 min, safe >= 30 min
-      if (timeUntilBoarding < 15) {
+      // Calculate buffer: time available after this step minus time needed for remaining activities
+      const bufferTime = timeUntilBoarding - timeNeededForRemaining;
+      
+      // Status based on available buffer: risky < 15 min, tight 15-30 min, safe >= 30 min
+      if (bufferTime < 15) {
         step.status = 'risky';
-      } else if (timeUntilBoarding < 30) {
+      } else if (bufferTime < 30) {
         step.status = 'tight';
       } else {
         step.status = 'safe';
