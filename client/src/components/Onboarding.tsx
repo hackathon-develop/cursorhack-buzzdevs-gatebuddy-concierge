@@ -21,6 +21,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   
   // Trip details state
   const [terminal, setTerminal] = useState('T1');
+  const [arrivingGate, setArrivingGate] = useState('');
   const [isDomestic, setIsDomestic] = useState(false);
   const [hasBaggage, setHasBaggage] = useState(false);
   const [hasNextFlight, setHasNextFlight] = useState(true);
@@ -95,6 +96,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     const tripDetails: TripDetails = {
       arrivalTime: now,
       terminal,
+      arrivingGate: arrivingGate || undefined,
       isDomestic,
       hasBaggage,
       nextFlightTime: flightDateTime,
@@ -242,6 +244,20 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     <SelectItem value="T3">Terminal 3 (Gates D)</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="arrivingGate" className="text-sm sm:text-base font-semibold">
+                  Which gate did you arrive at?
+                </Label>
+                <Input
+                  id="arrivingGate"
+                  type="text"
+                  placeholder="e.g., A1, B5, C10"
+                  value={arrivingGate}
+                  onChange={(e) => setArrivingGate(e.target.value)}
+                  className="h-10 sm:h-12 text-sm sm:text-base"
+                />
               </div>
 
               <div className="flex items-center space-x-3 p-3 sm:p-4 bg-muted/50 rounded-lg">
