@@ -13,11 +13,6 @@ interface OnboardingProps {
   onComplete: (trip: TripDetails, preferences: UserPreferences) => void;
 }
 
-// Gate options by terminal
-const gateOptions: Record<string, string[]> = {
-  'T1': ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'],
-};
-
 // Fun airport names
 const airportNames = [
   'Nova Europa International',
@@ -32,11 +27,38 @@ const airportNames = [
   'Voyage Vortex',
 ];
 
+// Function to generate unique gates for each airport
+const generateGatesForAirport = (airportName: string): string[] => {
+  // Nova Europa International uses default gates
+  if (airportName === 'Nova Europa International') {
+    return ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
+  }
+  
+  // All other airports get unique random gates
+  const seed = airportName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const random = (index: number) => {
+    const x = Math.sin(seed + index) * 10000;
+    return x - Math.floor(x);
+  };
+
+  const terminals = ['A', 'B', 'C'];
+  const gates: string[] = [];
+  
+  // Generate 8 random gates
+  for (let i = 0; i < 8; i++) {
+    const terminalIndex = Math.floor(random(i) * terminals.length);
+    const gateNumber = Math.floor(random(i + 100) * 10) + 1;
+    gates.push(`${terminals[terminalIndex]}${gateNumber}`);
+  }
+  
+  // Remove duplicates
+  return Array.from(new Set(gates));
+};
+
 export default function Onboarding({ onComplete }: OnboardingProps) {
   const [step, setStep] = useState(1);
   const [airportName, setAirportName] = useState('');
   const [arrivingGate, setArrivingGate] = useState('');
-  const TERMINAL = 'T1'; // Single terminal only
   const [departureGate, setDepartureGate] = useState('');
   const [isDomestic, setIsDomestic] = useState(false);
   const [hasBaggage, setHasBaggage] = useState(false);
@@ -45,6 +67,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   const [selectedTime, setSelectedTime] = useState<number | null>(null);
   const [preferences, setPreferences] = useState('');
   const [showError, setShowError] = useState('');
+  const TERMINAL = 'T1'; // Single terminal only
 
   const setQuickTime = (hours: number) => {
     const now = new Date();
@@ -167,7 +190,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                       <SelectValue placeholder="Select a gate" />
                     </SelectTrigger>
                     <SelectContent>
-                      {gateOptions[TERMINAL]?.map((gate) => (
+                      {airportName && generateGatesForAirport(airportName).map((gate: string) => (
                         <SelectItem key={gate} value={gate}>
                           {gate}
                         </SelectItem>
@@ -186,7 +209,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                       <SelectValue placeholder="Select a gate" />
                     </SelectTrigger>
                     <SelectContent>
-                      {gateOptions[TERMINAL]?.map((gate) => (
+                      {airportName && generateGatesForAirport(airportName).map((gate: string) => (
                         <SelectItem key={gate} value={gate}>
                           {gate}
                         </SelectItem>
