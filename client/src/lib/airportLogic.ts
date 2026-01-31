@@ -403,25 +403,19 @@ export function build_timeline(
   
   // Step 5: Gate step removed - no longer displayed in timeline
   
-  // Calculate status for each step based on remaining time
+  // Calculate status for each step based on real-time data
   if (tripDetails.nextFlightTime) {
-    const boardingTime = new Date(tripDetails.nextFlightTime.getTime() - 30 * 60000);
+    const boardingEndTime = new Date(tripDetails.nextFlightTime.getTime() - 15 * 60000);
+    const now = new Date();
     
-    timeline.forEach((step, index) => {
-      const stepEndTime = new Date(step.startTime.getTime() + (step.travelTime + step.duration) * 60000);
-      const timeUntilBoarding = (boardingTime.getTime() - stepEndTime.getTime()) / 60000;
+    timeline.forEach((step) => {
+      // Calculate time remaining until boarding ends from NOW
+      const timeUntilBoardingEnds = (boardingEndTime.getTime() - now.getTime()) / 60000;
       
-      // Calculate remaining steps time (time needed for remaining activities)
-      const remainingSteps = timeline.slice(index + 1);
-      const timeNeededForRemaining = remainingSteps.reduce((sum, s) => sum + s.travelTime + s.duration, 0);
-      
-      // Calculate buffer: time available after this step minus time needed for remaining activities
-      const bufferTime = timeUntilBoarding - timeNeededForRemaining;
-      
-      // Status based on available buffer: risky < 15 min, tight 15-30 min, safe >= 30 min
-      if (bufferTime < 15) {
+      // Status based on real-time remaining: risky <= 15 min, tight 15-30 min, safe > 30 min
+      if (timeUntilBoardingEnds <= 15) {
         step.status = 'risky';
-      } else if (bufferTime < 30) {
+      } else if (timeUntilBoardingEnds <= 30) {
         step.status = 'tight';
       } else {
         step.status = 'safe';
