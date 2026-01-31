@@ -379,30 +379,24 @@ export function build_timeline(
     currentLocation = poiLocation;
   });
   
-  // Step 4: Security (if next flight exists and international)
-  if (tripDetails.nextFlightTime && !tripDetails.isDomestic) {
-    const securityZoneId = `${tripDetails.terminal.toLowerCase()}-security`;
-    const securityLocation = getZoneCoordinates(securityZoneId);
+  // Step 4: Boarding process (if next flight exists)
+  // Boarding starts 50 minutes before flight and ends 15 minutes before flight
+  if (tripDetails.nextFlightTime) {
+    const boardingStartTime = new Date(tripDetails.nextFlightTime.getTime() - 50 * 60000);
+    const boardingEndTime = new Date(tripDetails.nextFlightTime.getTime() - 15 * 60000);
+    const boardingDuration = 35; // 50 - 15 = 35 minutes
     
-    if (securityLocation && currentLocation) {
-      const travelTime = compute_travel_time(currentLocation, securityLocation, preferences.mobility);
-      const queueTime = estimate_queue_times(currentTime, tripDetails.terminal, 'security', tripDetails.isDomestic);
-      
-      timeline.push({
-        id: 'security',
-        type: 'checkpoint',
-        name: 'Security Checkpoint',
-        location: securityZoneId,
-        startTime: new Date(currentTime),
-        duration: queueTime,
-        travelTime,
-        status: 'safe',
-        description: `Security screening. Estimated wait: ${queueTime} min`
-      });
-      
-      currentTime = new Date(currentTime.getTime() + (travelTime + queueTime) * 60000);
-      currentLocation = securityLocation;
-    }
+    timeline.push({
+      id: 'boarding',
+      type: 'checkpoint',
+      name: 'Boarding Process',
+      location: tripDetails.terminal,
+      startTime: boardingStartTime,
+      duration: boardingDuration,
+      travelTime: 0,
+      status: 'safe',
+      description: `Boarding window: ${boardingStartTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${boardingEndTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+    });
   }
   
   // Step 5: Gate (if specified)

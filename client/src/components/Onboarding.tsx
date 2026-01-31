@@ -55,9 +55,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       }
       if (!isDomestic) {
         steps.push('Passport Control (20 min)');
-        steps.push('Security (15 min)');
       }
-      // Domestic flights don't need security or passport control
+      steps.push('Boarding Process (50-15 min before)');
       if (gateNumber) {
         steps.push(`Walk to Gate ${gateNumber} (10 min)`);
       }
