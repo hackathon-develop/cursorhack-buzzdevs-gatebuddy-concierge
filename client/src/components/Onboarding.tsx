@@ -1,8 +1,7 @@
-'use client';
+// Focus: Context awareness, immediate feedback, confirmation dialogs, natural mapping
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -14,11 +13,19 @@ interface OnboardingProps {
   onComplete: (trip: TripDetails, preferences: UserPreferences) => void;
 }
 
+// Gate options by terminal
+const gateOptions: Record<string, string[]> = {
+  'T1': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12'],
+  'T2': ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13', 'C14', 'C15', 'C16'],
+  'T3': ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10'],
+};
+
 export default function Onboarding({ onComplete }: OnboardingProps) {
   const [step, setStep] = useState(1);
-  const [terminal, setTerminal] = useState('T1');
+  const [arrivalTerminal, setArrivalTerminal] = useState('T1');
   const [arrivingGate, setArrivingGate] = useState('');
-  const [gateNumber, setGateNumber] = useState('');
+  const [departureTerminal, setDepartureTerminal] = useState('T1');
+  const [departureGate, setDepartureGate] = useState('');
   const [isDomestic, setIsDomestic] = useState(false);
   const [hasBaggage, setHasBaggage] = useState(false);
   const [hasNextFlight, setHasNextFlight] = useState(true);
@@ -36,8 +43,8 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   };
 
   const handleComplete = () => {
-    if (!gateNumber.trim()) {
-      setShowError('Please enter your departure gate');
+    if (!departureGate.trim()) {
+      setShowError('Please select your departure gate');
       return;
     }
 
@@ -54,9 +61,9 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
     }
 
     const trip: TripDetails = {
-      terminal,
+      terminal: departureTerminal,
       arrivingGate: arrivingGate || 'Unknown',
-      gateNumber: gateNumber.toUpperCase(),
+      gateNumber: departureGate.toUpperCase(),
       isDomestic,
       hasBaggage,
       hasNextFlight,
@@ -115,19 +122,19 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
             {/* Step 1: Trip Details */}
             {step === 1 && (
               <div className="space-y-4 sm:space-y-6 mt-6">
-                {/* Terminal Selection */}
+                {/* Arrival Terminal */}
                 <div className="space-y-2">
-                  <Label htmlFor="terminal" className="text-sm sm:text-base font-semibold">
-                    Which terminal did you arrive at?
+                  <Label htmlFor="arrivalTerminal" className="text-sm sm:text-base font-semibold">
+                    Arrival terminal
                   </Label>
-                  <Select value={terminal} onValueChange={setTerminal}>
-                    <SelectTrigger id="terminal" className="h-10 sm:h-12">
+                  <Select value={arrivalTerminal} onValueChange={setArrivalTerminal}>
+                    <SelectTrigger id="arrivalTerminal" className="h-10 sm:h-12">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="T1">Terminal 1 (Gates A, B)</SelectItem>
-                      <SelectItem value="T2">Terminal 2 (Gates C)</SelectItem>
-                      <SelectItem value="T3">Terminal 3 (Gates D)</SelectItem>
+                      <SelectItem value="T1">Terminal 1</SelectItem>
+                      <SelectItem value="T2">Terminal 2</SelectItem>
+                      <SelectItem value="T3">Terminal 3</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -135,32 +142,56 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                 {/* Arrival Gate */}
                 <div className="space-y-2">
                   <Label htmlFor="arrivingGate" className="text-sm sm:text-base font-semibold">
-                    Which gate did you arrive at?
+                    Arrival gate
                   </Label>
-                  <Input
-                    id="arrivingGate"
-                    type="text"
-                    placeholder="e.g., A1, B5, C10"
-                    value={arrivingGate}
-                    onChange={(e) => setArrivingGate(e.target.value)}
-                    className="h-10 sm:h-12 text-sm sm:text-base"
-                  />
+                  <Select value={arrivingGate} onValueChange={setArrivingGate}>
+                    <SelectTrigger id="arrivingGate" className="h-10 sm:h-12">
+                      <SelectValue placeholder="Select a gate" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {gateOptions[arrivalTerminal]?.map((gate) => (
+                        <SelectItem key={gate} value={gate}>
+                          {gate}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Departure Terminal */}
+                <div className="space-y-2">
+                  <Label htmlFor="departureTerminal" className="text-sm sm:text-base font-semibold">
+                    Departure terminal
+                  </Label>
+                  <Select value={departureTerminal} onValueChange={setDepartureTerminal}>
+                    <SelectTrigger id="departureTerminal" className="h-10 sm:h-12">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="T1">Terminal 1</SelectItem>
+                      <SelectItem value="T2">Terminal 2</SelectItem>
+                      <SelectItem value="T3">Terminal 3</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Departure Gate */}
                 <div className="space-y-2">
-                  <Label htmlFor="gate" className="text-sm sm:text-base font-semibold">
+                  <Label htmlFor="departureGate" className="text-sm sm:text-base font-semibold">
                     Departure gate <span className="text-red-500">*</span>
                   </Label>
-                  <Input
-                    id="gate"
-                    type="text"
-                    value={gateNumber}
-                    onChange={(e) => setGateNumber(e.target.value.toUpperCase())}
-                    placeholder="e.g., B12, C5, A10"
-                    className="h-10 sm:h-12 text-sm sm:text-base"
-                    required
-                  />
+                  <Select value={departureGate} onValueChange={setDepartureGate}>
+                    <SelectTrigger id="departureGate" className="h-10 sm:h-12">
+                      <SelectValue placeholder="Select a gate" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {gateOptions[departureTerminal]?.map((gate) => (
+                        <SelectItem key={gate} value={gate}>
+                          {gate}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <p className="text-xs text-muted-foreground font-body">
                     We'll calculate walking time to your gate
                   </p>
@@ -205,7 +236,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
 
                   {/* Time input */}
                   <div className="relative">
-                    <Input
+                    <input
                       id="flightTime"
                       type="time"
                       value={nextFlightTime}
@@ -214,7 +245,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                         setSelectedTime(null);
                       }}
                       placeholder="Or enter exact time"
-                      className="h-10 sm:h-12 text-sm sm:text-base"
+                      className="w-full h-10 sm:h-12 px-3 rounded-md border border-input bg-background text-sm sm:text-base"
                     />
                   </div>
                 </div>
@@ -275,13 +306,22 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                     {showError}
                   </div>
                 )}
+
+                <div className="flex gap-3 pt-4">
+                  <Button variant="outline" className="flex-1" onClick={() => setStep(0)}>
+                    Back
+                  </Button>
+                  <Button className="flex-1" onClick={() => setStep(2)}>
+                    Continue <span className="ml-2">→</span>
+                  </Button>
+                </div>
               </div>
             )}
 
             {/* Step 2: Preferences */}
             {step === 2 && (
               <div className="space-y-4 sm:space-y-6 mt-6">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <Label htmlFor="preferences" className="text-sm sm:text-base font-semibold">
                     Tell us your preferences
                   </Label>
@@ -290,51 +330,23 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
                   </p>
                   <textarea
                     id="preferences"
-                    placeholder="e.g., I'm hungry and want a quick coffee, I need a pharmacy, I want to shop for souvenirs..."
                     value={preferences}
                     onChange={(e) => setPreferences(e.target.value)}
-                    className="w-full h-32 p-3 border border-input rounded-lg text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="e.g., I'm hungry and want a quick coffee, I need a pharmacy, I want to shop for souvenirs..."
+                    className="w-full min-h-32 sm:min-h-40 p-3 sm:p-4 rounded-md border border-input bg-background text-sm sm:text-base resize-none"
                   />
+                </div>
+
+                <div className="flex gap-3 pt-4">
+                  <Button variant="outline" className="flex-1" onClick={() => setStep(1)}>
+                    Back
+                  </Button>
+                  <Button className="flex-1" onClick={handleComplete}>
+                    Create My Plan
+                  </Button>
                 </div>
               </div>
             )}
-
-            {/* Navigation buttons */}
-            <div className="flex gap-3 mt-6 pt-4 border-t">
-              {step === 2 && (
-                <Button
-                  variant="outline"
-                  onClick={() => setStep(1)}
-                  className="flex-1"
-                >
-                  Back
-                </Button>
-              )}
-              {step === 1 && (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    if (!gateNumber.trim()) {
-                      setShowError('Please enter your departure gate');
-                      return;
-                    }
-                    setShowError('');
-                    setStep(2);
-                  }}
-                  className="flex-1"
-                >
-                  Continue
-                </Button>
-              )}
-              {step === 2 && (
-                <Button
-                  onClick={handleComplete}
-                  className="flex-1 bg-primary hover:bg-primary/90"
-                >
-                  Create My Plan
-                </Button>
-              )}
-            </div>
           </DialogContent>
         </Dialog>
       </div>
