@@ -42,6 +42,7 @@ export interface UserPreferences {
   mealType?: 'quick-bite' | 'sit-down';
   mobility: 'normal' | 'reduced';
   loungeAccess: boolean;
+  customPreferences?: string;
 }
 
 export interface TripDetails {
