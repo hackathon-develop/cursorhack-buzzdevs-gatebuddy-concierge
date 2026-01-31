@@ -82,6 +82,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   };
 
   const handleComplete = () => {
+    if (!gateNumber.trim()) {
+      alert('Please enter your departure gate');
+      return;
+    }
     const now = new Date();
     
     let flightDateTime: Date | undefined = undefined;
@@ -100,7 +104,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       isDomestic,
       hasBaggage,
       nextFlightTime: flightDateTime,
-      gateNumber: gateNumber || undefined,
+      gateNumber: gateNumber,
     };
 
     const preferences: UserPreferences = {
@@ -364,7 +368,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
                   <div className="space-y-2">
                     <Label htmlFor="gate" className="text-sm sm:text-base font-semibold">
-                      Gate number (optional)
+                      Departure gate <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id="gate"
@@ -373,6 +377,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       onChange={(e) => setGateNumber(e.target.value.toUpperCase())}
                       placeholder="e.g., B12, C5, A10"
                       className="h-10 sm:h-12 text-sm sm:text-base"
+                      required
                     />
                     <p className="text-xs text-muted-foreground font-body">
                       We'll calculate walking time to your gate
