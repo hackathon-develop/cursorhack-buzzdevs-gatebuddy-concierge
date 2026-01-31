@@ -94,17 +94,20 @@ export default function Home() {
     setNearbyPOIs(nearbyPOIs);
 
     // Include top recommended POIs in the timeline (up to 2 POIs based on available time)
+    // Only add POIs if user provided preferences
     const timeUntilBoarding = tripDetails.nextFlightTime 
       ? Math.floor((tripDetails.nextFlightTime.getTime() - new Date().getTime()) / 60000)
       : 120;
     
-    // Select POIs that fit in the available time
-    const selectedPOIs = nearbyPOIs
-      .filter(poi => {
-        const poiWithTime = poi as any;
-        return ((poiWithTime.travelTime || 0) + (poiWithTime.totalTime || 0)) < (timeUntilBoarding - 60);
-      })
-      .slice(0, 2);
+    // Select POIs that fit in the available time - only if preferences are provided
+    const selectedPOIs = preferences.customPreferences && preferences.customPreferences.trim() !== ''
+      ? nearbyPOIs
+          .filter(poi => {
+            const poiWithTime = poi as any;
+            return ((poiWithTime.travelTime || 0) + (poiWithTime.totalTime || 0)) < (timeUntilBoarding - 60);
+          })
+          .slice(0, 2)
+      : []; // Empty array if no preferences provided
     
     const timeline = build_timeline(
       { ...tripDetails, arrivalTime: new Date() },
