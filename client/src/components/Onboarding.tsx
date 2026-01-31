@@ -23,6 +23,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   // Trip details state
   const [terminal, setTerminal] = useState('T1');
   const [isDomestic, setIsDomestic] = useState(false);
+  const [hasBaggage, setHasBaggage] = useState(false);
   const [hasNextFlight, setHasNextFlight] = useState(true);
   const [nextFlightTime, setNextFlightTime] = useState('');
   const [gateNumber, setGateNumber] = useState('');
@@ -54,11 +55,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
       // Estimate steps
       const steps: string[] = [];
-      if (!isDomestic) {
+      if (hasBaggage) {
         steps.push('Baggage Claim (15 min)');
-        steps.push('Passport Control (20 min)');
       }
-      steps.push('Security (15 min)');
+      if (!isDomestic) {
+        steps.push('Passport Control (20 min)');
+        steps.push('Security (15 min)');
+      }
+      // Domestic flights don't need security or passport control
       if (gateNumber) {
         steps.push(`Walk to Gate ${gateNumber} (10 min)`);
       }
@@ -67,7 +71,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       setTimeUntilFlight(null);
       setEstimatedSteps([]);
     }
-  }, [hasNextFlight, nextFlightTime, isDomestic, gateNumber]);
+  }, [hasNextFlight, nextFlightTime, isDomestic, hasBaggage, gateNumber]);
 
   const handleNext = () => {
     if (step < 2) {
@@ -99,6 +103,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       arrivalTime: now,
       terminal,
       isDomestic,
+      hasBaggage,
       nextFlightTime: flightDateTime,
       gateNumber: gateNumber || undefined,
     };
@@ -287,7 +292,23 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     Domestic arrival
                   </Label>
                   <p className="text-sm text-muted-foreground font-body">
-                    Skip passport control (saves ~20 minutes)
+                    Skip passport control and security (saves ~35 minutes)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3 p-4 bg-muted/50 rounded-lg">
+                <Checkbox 
+                  id="baggage" 
+                  checked={hasBaggage}
+                  onCheckedChange={(checked) => setHasBaggage(checked as boolean)}
+                />
+                <div className="flex-1">
+                  <Label htmlFor="baggage" className="font-semibold cursor-pointer">
+                    I need to collect checked baggage
+                  </Label>
+                  <p className="text-sm text-muted-foreground font-body">
+                    Adds ~15 minutes for baggage claim
                   </p>
                 </div>
               </div>

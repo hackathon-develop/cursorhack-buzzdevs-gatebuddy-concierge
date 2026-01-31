@@ -50,6 +50,7 @@ export interface TripDetails {
   nextFlightTime?: Date;
   gateNumber?: string;
   isDomestic: boolean;
+  hasBaggage?: boolean;
   currentZone?: string;
 }
 
@@ -303,7 +304,7 @@ export function build_timeline(
   }
   
   // Step 1: Baggage claim (if needed)
-  if (!tripDetails.isDomestic || tripDetails.currentZone === 'arrivals') {
+  if (tripDetails.hasBaggage) {
     const baggageZoneId = `${tripDetails.terminal.toLowerCase()}-baggage`;
     const baggageLocation = getZoneCoordinates(baggageZoneId);
     
@@ -377,8 +378,8 @@ export function build_timeline(
     currentLocation = poiLocation;
   });
   
-  // Step 4: Security (if next flight exists)
-  if (tripDetails.nextFlightTime) {
+  // Step 4: Security (if next flight exists and international)
+  if (tripDetails.nextFlightTime && !tripDetails.isDomestic) {
     const securityZoneId = `${tripDetails.terminal.toLowerCase()}-security`;
     const securityLocation = getZoneCoordinates(securityZoneId);
     
