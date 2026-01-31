@@ -401,31 +401,7 @@ export function build_timeline(
     });
   }
   
-  // Step 5: Gate (if specified)
-  if (tripDetails.gateNumber && tripDetails.nextFlightTime) {
-    const gateLocation = getGateCoordinates(tripDetails.gateNumber);
-    
-    if (gateLocation && currentLocation) {
-      const travelTime = compute_travel_time(currentLocation, gateLocation, preferences.mobility);
-      
-      // Boarding time is 30 minutes before departure
-      const boardingTime = new Date(tripDetails.nextFlightTime.getTime() - 30 * 60000);
-      
-      timeline.push({
-        id: 'gate',
-        type: 'gate',
-        name: `Gate ${tripDetails.gateNumber}`,
-        location: tripDetails.gateNumber,
-        startTime: new Date(currentTime),
-        duration: 0,
-        travelTime,
-        status: 'safe',
-        description: `Arrive at gate. Boarding starts at ${boardingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
-      });
-      
-      currentTime = new Date(currentTime.getTime() + travelTime * 60000);
-    }
-  }
+  // Step 5: Gate step removed - no longer displayed in timeline
   
   // Calculate status for each step based on remaining time
   if (tripDetails.nextFlightTime) {
