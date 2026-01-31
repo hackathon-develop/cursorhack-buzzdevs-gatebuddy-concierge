@@ -492,7 +492,9 @@ export default function Home() {
           <DialogHeader>
             <DialogTitle>Start Over?</DialogTitle>
             <DialogDescription className="space-y-3 pt-2">
-              <p>This will clear your current plan and preferences:</p>
+              This will clear your current plan and preferences:
+            </DialogDescription>
+            <div className="space-y-3">
               <div className="bg-muted p-3 rounded-lg text-sm space-y-1">
                 <div className="flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 text-yellow-600" />
@@ -504,8 +506,8 @@ export default function Home() {
                   <li>• All chat history</li>
                 </ul>
               </div>
-              <p className="text-sm">You'll return to the welcome screen to set up a new trip.</p>
-            </DialogDescription>
+              <p className="text-sm text-muted-foreground">You'll return to the welcome screen to set up a new trip.</p>
+            </div>
           </DialogHeader>
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowResetDialog(false)}>
