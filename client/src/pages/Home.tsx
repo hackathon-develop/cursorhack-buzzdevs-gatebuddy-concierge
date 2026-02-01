@@ -218,7 +218,7 @@ export default function Home() {
                 {/* Airport Map */}
                 {state.tripDetails && (
                   <div className="bg-white rounded-lg border border-border overflow-hidden">
-                    <div className="h-96 w-full bg-muted flex items-center justify-center">
+                    <div className="h-[500px] w-full bg-muted flex items-center justify-center">
                       <img
                         src={getAirportMapPath(state.tripDetails.airportName || state.tripDetails.terminal)}
                         alt="Airport Map"
