@@ -217,7 +217,7 @@ export default function Home() {
               <TabsContent value="timeline" className="mt-0 space-y-6">
                 {/* Airport Map */}
                 {state.tripDetails && (
-                  <div className="bg-white rounded-lg border border-border overflow-hidden">
+                  <div className="bg-muted rounded-lg border border-border overflow-hidden">
                     <div className="h-[500px] w-full bg-muted flex items-center justify-center">
                       <img
                         src={getAirportMapPath(state.tripDetails.airportName || state.tripDetails.terminal)}
