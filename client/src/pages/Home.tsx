@@ -218,11 +218,11 @@ export default function Home() {
                 {/* Airport Map */}
                 {state.tripDetails && (
                   <div className="bg-muted rounded-lg border border-border overflow-hidden">
-                    <div className="h-[500px] w-full bg-muted flex items-center justify-center">
+                    <div className="h-[700px] w-full bg-muted flex items-center justify-center">
                       <img
                         src={getAirportMapPath(state.tripDetails.airportName || state.tripDetails.terminal)}
                         alt="Airport Map"
-                        className="w-full h-full object-contain p-4"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   </div>
