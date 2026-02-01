@@ -32,9 +32,9 @@ function getAirportMapPath(airportName: string): string {
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
   
-  // Nova Europa uses PNG, others use SVG
-  if (mapName === 'nova-europa') {
-    return `/maps/airports/nova-europa.png`;
+  // Map specific airports to their custom maps
+  if (mapName === 'nova-europa-international') {
+    return `/maps/airports/nova-international.png`;
   }
   if (mapName === 'skyward-horizons') {
     return `/maps/airports/skyward-horizons.svg`;
