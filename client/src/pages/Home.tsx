@@ -25,6 +25,23 @@ import {
   type POI,
 } from '@/lib/airportLogic';
 
+// Map airport names to their map files
+function getAirportMapPath(airportName: string): string {
+  const mapName = airportName
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+  
+  // Nova Europa uses PNG, others use SVG
+  if (mapName === 'nova-europa') {
+    return `/maps/airports/nova-europa.png`;
+  }
+  if (mapName === 'skyward-horizons') {
+    return `/maps/airports/skyward-horizons.svg`;
+  }
+  return '/maps/airports/generic.svg';
+}
+
 export default function Home() {
   const { state, setTripDetails, setPreferences, setTimeline, setNearbyPOIs, addMessage, completeOnboarding, resetApp, addSelectedPOI, removeSelectedPOI, setCurrentLocation } = useApp();
   const [quickReplies, setQuickReplies] = useState<string[]>([]);
@@ -196,9 +213,26 @@ export default function Home() {
               </TabsList>
             </div>
 
-            <div className="flex-1 overflow-auto p-6">
-              <TabsContent value="timeline" className="mt-0">
-                <TimelineView timeline={state.timeline} />
+            <div className="flex-1 overflow-auto p-6 space-y-6">
+              <TabsContent value="timeline" className="mt-0 space-y-6">
+                {/* Airport Map */}
+                {state.tripDetails && (
+                  <div className="bg-white rounded-lg border border-border overflow-hidden">
+                    <div className="h-96 w-full bg-muted flex items-center justify-center">
+                      <img
+                        src={getAirportMapPath(state.tripDetails.terminal)}
+                        alt="Airport Map"
+                        className="w-full h-full object-contain p-4"
+                      />
+                    </div>
+                  </div>
+                )}
+                
+                {/* Timeline */}
+                <div>
+                  <h2 className="text-xl font-sans font-bold mb-4">Your Action Plan</h2>
+                  <TimelineView timeline={state.timeline} />
+                </div>
               </TabsContent>
 
               <TabsContent value="nearby" className="mt-0 space-y-4">
