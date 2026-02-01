@@ -2,32 +2,91 @@
   "airport": {
     "code": "NEI",
     "name": "Nova Europa International",
-    "terminals": ["T1"]
+    "terminals": [
+      "T1"
+    ]
   },
   "zones": [
-    {"id": "t1-arrivals", "terminal": "T1", "name": "Arrivals Hall", "x": 100, "y": 100},
-    {"id": "t1-baggage", "terminal": "T1", "name": "Baggage Claim", "x": 150, "y": 120},
-    {"id": "t1-passport", "terminal": "T1", "name": "Passport Control", "x": 200, "y": 100},
-    {"id": "t1-departures", "terminal": "T1", "name": "Departures Hall", "x": 250, "y": 100},
-    {"id": "t1-security", "terminal": "T1", "name": "Security", "x": 300, "y": 100},
-    {"id": "t1-gates-a", "terminal": "T1", "name": "Gates A1-A4", "x": 400, "y": 80},
-    {"id": "t1-gates-b", "terminal": "T1", "name": "Gates B1-B4", "x": 400, "y": 120}
+    {
+      "id": "t1-arrivals",
+      "terminal": "T1",
+      "name": "Arrivals Hall",
+      "x": 100,
+      "y": 100
+    },
+    {
+      "id": "t1-baggage",
+      "terminal": "T1",
+      "name": "Baggage Claim",
+      "x": 150,
+      "y": 120
+    },
+    {
+      "id": "t1-passport",
+      "terminal": "T1",
+      "name": "Passport Control",
+      "x": 200,
+      "y": 100
+    },
+    {
+      "id": "t1-departures",
+      "terminal": "T1",
+      "name": "Departures Hall",
+      "x": 250,
+      "y": 100
+    },
+    {
+      "id": "t1-security",
+      "terminal": "T1",
+      "name": "Security",
+      "x": 300,
+      "y": 100
+    },
+    {
+      "id": "t1-gates-a",
+      "terminal": "T1",
+      "name": "Gates A1-A4",
+      "x": 400,
+      "y": 80
+    },
+    {
+      "id": "t1-gates-b",
+      "terminal": "T1",
+      "name": "Gates B1-B4",
+      "x": 400,
+      "y": 120
+    }
   ],
   "pois": [
     {
       "id": "poi-001",
-      "name": "Café Europa",
+      "name": "Caf\u00e9 Europa",
       "category": "cafe",
       "terminal": "T1",
       "zone": "t1-departures",
       "x": 260,
       "y": 110,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [3, 8],
+      "avgWaitTime": [
+        3,
+        8
+      ],
       "priceLevel": 2,
-      "tags": ["coffee", "pastries", "quick-bite", "vegan"],
-      "menu": ["Espresso €3.50", "Cappuccino €4.20", "Croissant €3.80", "Vegan Muffin €4.50", "Latte €4.00", "Americano €3.20"],
-      "description": "Quick European-style café with excellent coffee and fresh pastries."
+      "tags": [
+        "coffee",
+        "pastries",
+        "quick-bite",
+        "vegan"
+      ],
+      "menu": [
+        "Espresso \u20ac3.50",
+        "Cappuccino \u20ac4.20",
+        "Croissant \u20ac3.80",
+        "Vegan Muffin \u20ac4.50",
+        "Latte \u20ac4.00",
+        "Americano \u20ac3.20"
+      ],
+      "description": "Quick European-style caf\u00e9 with excellent coffee and fresh pastries."
     },
     {
       "id": "poi-r001",
@@ -38,10 +97,27 @@
       "x": 390,
       "y": 125,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [10, 20],
+      "avgWaitTime": [
+        10,
+        20
+      ],
       "priceLevel": 2,
-      "tags": ["burgers", "sit-down", "family-friendly", "american"],
-      "menu": ["Classic Burger €12", "Bacon Cheeseburger €14", "Grilled Chicken Sandwich €13", "Caesar Salad €10", "BBQ Ribs €18", "Kids Menu €8", "Onion Rings €5", "Sweet Potato Fries €6"],
+      "tags": [
+        "burgers",
+        "sit-down",
+        "family-friendly",
+        "american"
+      ],
+      "menu": [
+        "Classic Burger \u20ac12",
+        "Bacon Cheeseburger \u20ac14",
+        "Grilled Chicken Sandwich \u20ac13",
+        "Caesar Salad \u20ac10",
+        "BBQ Ribs \u20ac18",
+        "Kids Menu \u20ac8",
+        "Onion Rings \u20ac5",
+        "Sweet Potato Fries \u20ac6"
+      ],
       "description": "American-style grill with burgers, salads, and grilled mains. Family-friendly atmosphere."
     },
     {
@@ -53,10 +129,27 @@
       "x": 410,
       "y": 85,
       "openingHours": "07:00-21:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["sushi", "japanese", "quick-bite", "healthy"],
-      "menu": ["Salmon Nigiri Set €15", "Tuna Sashimi €18", "California Roll €12", "Dragon Roll €16", "Miso Soup €4", "Edamame €5", "Tempura Platter €14", "Green Tea €3"],
+      "tags": [
+        "sushi",
+        "japanese",
+        "quick-bite",
+        "healthy"
+      ],
+      "menu": [
+        "Salmon Nigiri Set \u20ac15",
+        "Tuna Sashimi \u20ac18",
+        "California Roll \u20ac12",
+        "Dragon Roll \u20ac16",
+        "Miso Soup \u20ac4",
+        "Edamame \u20ac5",
+        "Tempura Platter \u20ac14",
+        "Green Tea \u20ac3"
+      ],
       "description": "Fresh sushi and Japanese dishes, perfect for a quick healthy meal."
     },
     {
@@ -68,10 +161,27 @@
       "x": 265,
       "y": 105,
       "openingHours": "08:00-22:00",
-      "avgWaitTime": [8, 15],
+      "avgWaitTime": [
+        8,
+        15
+      ],
       "priceLevel": 2,
-      "tags": ["italian", "pasta", "quick-bite", "vegetarian"],
-      "menu": ["Spaghetti Carbonara €11", "Penne Arrabbiata €10", "Lasagna €13", "Margherita Pizza €12", "Caprese Salad €8", "Tiramisu €6", "Garlic Bread €4", "House Wine €7"],
+      "tags": [
+        "italian",
+        "pasta",
+        "quick-bite",
+        "vegetarian"
+      ],
+      "menu": [
+        "Spaghetti Carbonara \u20ac11",
+        "Penne Arrabbiata \u20ac10",
+        "Lasagna \u20ac13",
+        "Margherita Pizza \u20ac12",
+        "Caprese Salad \u20ac8",
+        "Tiramisu \u20ac6",
+        "Garlic Bread \u20ac4",
+        "House Wine \u20ac7"
+      ],
       "description": "Quick Italian kitchen serving fresh pasta and classic pizzas."
     },
     {
@@ -83,10 +193,28 @@
       "x": 260,
       "y": 310,
       "openingHours": "07:00-23:00",
-      "avgWaitTime": [12, 25],
+      "avgWaitTime": [
+        12,
+        25
+      ],
       "priceLevel": 3,
-      "tags": ["mediterranean", "sit-down", "halal", "healthy", "vegetarian"],
-      "menu": ["Grilled Sea Bass €22", "Lamb Kebab €19", "Falafel Wrap €11", "Greek Salad €9", "Hummus Platter €8", "Baklava €5", "Turkish Coffee €4", "Fresh Juice €6"],
+      "tags": [
+        "mediterranean",
+        "sit-down",
+        "halal",
+        "healthy",
+        "vegetarian"
+      ],
+      "menu": [
+        "Grilled Sea Bass \u20ac22",
+        "Lamb Kebab \u20ac19",
+        "Falafel Wrap \u20ac11",
+        "Greek Salad \u20ac9",
+        "Hummus Platter \u20ac8",
+        "Baklava \u20ac5",
+        "Turkish Coffee \u20ac4",
+        "Fresh Juice \u20ac6"
+      ],
       "description": "Authentic Mediterranean cuisine with halal options and fresh seafood."
     },
     {
@@ -98,10 +226,28 @@
       "x": 395,
       "y": 305,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [6, 12],
+      "avgWaitTime": [
+        6,
+        12
+      ],
       "priceLevel": 2,
-      "tags": ["asian", "noodles", "quick-bite", "vegan", "spicy"],
-      "menu": ["Pad Thai €12", "Ramen Bowl €13", "Pho €11", "Singapore Noodles €12", "Spring Rolls €6", "Dumplings €8", "Thai Iced Tea €4", "Mango Sticky Rice €5"],
+      "tags": [
+        "asian",
+        "noodles",
+        "quick-bite",
+        "vegan",
+        "spicy"
+      ],
+      "menu": [
+        "Pad Thai \u20ac12",
+        "Ramen Bowl \u20ac13",
+        "Pho \u20ac11",
+        "Singapore Noodles \u20ac12",
+        "Spring Rolls \u20ac6",
+        "Dumplings \u20ac8",
+        "Thai Iced Tea \u20ac4",
+        "Mango Sticky Rice \u20ac5"
+      ],
       "description": "Fast Asian noodle bar with Thai, Vietnamese, and Chinese favorites."
     },
     {
@@ -113,10 +259,27 @@
       "x": 410,
       "y": 295,
       "openingHours": "10:00-22:00",
-      "avgWaitTime": [15, 30],
+      "avgWaitTime": [
+        15,
+        30
+      ],
       "priceLevel": 3,
-      "tags": ["steakhouse", "sit-down", "premium", "american"],
-      "menu": ["Ribeye Steak 300g €32", "Filet Mignon €28", "T-Bone Steak €35", "Grilled Salmon €24", "Caesar Salad €12", "Loaded Baked Potato €7", "Cheesecake €8", "Premium Wine €15"],
+      "tags": [
+        "steakhouse",
+        "sit-down",
+        "premium",
+        "american"
+      ],
+      "menu": [
+        "Ribeye Steak 300g \u20ac32",
+        "Filet Mignon \u20ac28",
+        "T-Bone Steak \u20ac35",
+        "Grilled Salmon \u20ac24",
+        "Caesar Salad \u20ac12",
+        "Loaded Baked Potato \u20ac7",
+        "Cheesecake \u20ac8",
+        "Premium Wine \u20ac15"
+      ],
       "description": "Premium steakhouse offering aged beef and fine dining experience."
     },
     {
@@ -128,10 +291,27 @@
       "x": 255,
       "y": 505,
       "openingHours": "08:00-23:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 1,
-      "tags": ["mexican", "quick-bite", "spicy", "vegetarian"],
-      "menu": ["Beef Tacos (3) €9", "Chicken Burrito €10", "Veggie Quesadilla €8", "Nachos Grande €7", "Guacamole & Chips €6", "Churros €4", "Margarita (non-alcoholic) €5", "Salsa Trio €3"],
+      "tags": [
+        "mexican",
+        "quick-bite",
+        "spicy",
+        "vegetarian"
+      ],
+      "menu": [
+        "Beef Tacos (3) \u20ac9",
+        "Chicken Burrito \u20ac10",
+        "Veggie Quesadilla \u20ac8",
+        "Nachos Grande \u20ac7",
+        "Guacamole & Chips \u20ac6",
+        "Churros \u20ac4",
+        "Margarita (non-alcoholic) \u20ac5",
+        "Salsa Trio \u20ac3"
+      ],
       "description": "Fast Mexican street food with authentic flavors and generous portions."
     },
     {
@@ -143,10 +323,29 @@
       "x": 405,
       "y": 495,
       "openingHours": "09:00-22:00",
-      "avgWaitTime": [10, 18],
+      "avgWaitTime": [
+        10,
+        18
+      ],
       "priceLevel": 2,
-      "tags": ["indian", "curry", "halal", "vegetarian", "vegan", "spicy"],
-      "menu": ["Chicken Tikka Masala €14", "Lamb Vindaloo €15", "Vegetable Biryani €12", "Palak Paneer €11", "Naan Bread €3", "Samosas (4) €6", "Mango Lassi €4", "Gulab Jamun €5"],
+      "tags": [
+        "indian",
+        "curry",
+        "halal",
+        "vegetarian",
+        "vegan",
+        "spicy"
+      ],
+      "menu": [
+        "Chicken Tikka Masala \u20ac14",
+        "Lamb Vindaloo \u20ac15",
+        "Vegetable Biryani \u20ac12",
+        "Palak Paneer \u20ac11",
+        "Naan Bread \u20ac3",
+        "Samosas (4) \u20ac6",
+        "Mango Lassi \u20ac4",
+        "Gulab Jamun \u20ac5"
+      ],
       "description": "Authentic Indian cuisine with rich curries and tandoori specialties."
     },
     {
@@ -158,10 +357,27 @@
       "x": 110,
       "y": 105,
       "openingHours": "05:00-14:00",
-      "avgWaitTime": [8, 15],
+      "avgWaitTime": [
+        8,
+        15
+      ],
       "priceLevel": 2,
-      "tags": ["breakfast", "brunch", "quick-bite", "family-friendly"],
-      "menu": ["Full English Breakfast €13", "Pancake Stack €10", "Eggs Benedict €11", "Avocado Toast €9", "Granola Bowl €8", "Fresh Juice €5", "Filter Coffee €3", "Fruit Salad €7"],
+      "tags": [
+        "breakfast",
+        "brunch",
+        "quick-bite",
+        "family-friendly"
+      ],
+      "menu": [
+        "Full English Breakfast \u20ac13",
+        "Pancake Stack \u20ac10",
+        "Eggs Benedict \u20ac11",
+        "Avocado Toast \u20ac9",
+        "Granola Bowl \u20ac8",
+        "Fresh Juice \u20ac5",
+        "Filter Coffee \u20ac3",
+        "Fruit Salad \u20ac7"
+      ],
       "description": "All-day breakfast spot serving hearty morning classics and healthy options."
     },
     {
@@ -173,10 +389,27 @@
       "x": 270,
       "y": 295,
       "openingHours": "10:00-21:00",
-      "avgWaitTime": [12, 20],
+      "avgWaitTime": [
+        12,
+        20
+      ],
       "priceLevel": 3,
-      "tags": ["seafood", "sit-down", "healthy", "premium"],
-      "menu": ["Fish & Chips €16", "Grilled Prawns €20", "Lobster Roll €24", "Clam Chowder €9", "Oysters (6) €18", "Seafood Platter €35", "Lemon Tart €7", "White Wine €12"],
+      "tags": [
+        "seafood",
+        "sit-down",
+        "healthy",
+        "premium"
+      ],
+      "menu": [
+        "Fish & Chips \u20ac16",
+        "Grilled Prawns \u20ac20",
+        "Lobster Roll \u20ac24",
+        "Clam Chowder \u20ac9",
+        "Oysters (6) \u20ac18",
+        "Seafood Platter \u20ac35",
+        "Lemon Tart \u20ac7",
+        "White Wine \u20ac12"
+      ],
       "description": "Fresh seafood restaurant with daily catches and coastal favorites."
     },
     {
@@ -188,10 +421,28 @@
       "x": 265,
       "y": 495,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [7, 14],
+      "avgWaitTime": [
+        7,
+        14
+      ],
       "priceLevel": 2,
-      "tags": ["vegan", "vegetarian", "healthy", "quick-bite", "organic"],
-      "menu": ["Buddha Bowl €12", "Vegan Burger €11", "Quinoa Salad €10", "Smoothie Bowl €9", "Falafel Plate €11", "Raw Cake €6", "Cold-Pressed Juice €7", "Kombucha €5"],
+      "tags": [
+        "vegan",
+        "vegetarian",
+        "healthy",
+        "quick-bite",
+        "organic"
+      ],
+      "menu": [
+        "Buddha Bowl \u20ac12",
+        "Vegan Burger \u20ac11",
+        "Quinoa Salad \u20ac10",
+        "Smoothie Bowl \u20ac9",
+        "Falafel Plate \u20ac11",
+        "Raw Cake \u20ac6",
+        "Cold-Pressed Juice \u20ac7",
+        "Kombucha \u20ac5"
+      ],
       "description": "100% plant-based restaurant with organic ingredients and creative dishes."
     },
     {
@@ -203,10 +454,27 @@
       "x": 395,
       "y": 90,
       "openingHours": "10:00-22:00",
-      "avgWaitTime": [10, 18],
+      "avgWaitTime": [
+        10,
+        18
+      ],
       "priceLevel": 2,
-      "tags": ["bbq", "american", "sit-down", "family-friendly"],
-      "menu": ["Pulled Pork Sandwich €13", "Beef Brisket Plate €17", "BBQ Chicken €14", "Ribs Half Rack €16", "Mac & Cheese €6", "Coleslaw €4", "Cornbread €3", "Pecan Pie €6"],
+      "tags": [
+        "bbq",
+        "american",
+        "sit-down",
+        "family-friendly"
+      ],
+      "menu": [
+        "Pulled Pork Sandwich \u20ac13",
+        "Beef Brisket Plate \u20ac17",
+        "BBQ Chicken \u20ac14",
+        "Ribs Half Rack \u20ac16",
+        "Mac & Cheese \u20ac6",
+        "Coleslaw \u20ac4",
+        "Cornbread \u20ac3",
+        "Pecan Pie \u20ac6"
+      ],
       "description": "Slow-smoked BBQ with authentic American pit-style cooking."
     },
     {
@@ -218,10 +486,27 @@
       "x": 385,
       "y": 310,
       "openingHours": "08:00-23:00",
-      "avgWaitTime": [15, 25],
+      "avgWaitTime": [
+        15,
+        25
+      ],
       "priceLevel": 3,
-      "tags": ["french", "sit-down", "premium", "wine"],
-      "menu": ["Coq au Vin €19", "Beef Bourguignon €21", "Croque Monsieur €12", "French Onion Soup €8", "Escargots €14", "Crème Brûlée €7", "Croissant €4", "Champagne €18"],
+      "tags": [
+        "french",
+        "sit-down",
+        "premium",
+        "wine"
+      ],
+      "menu": [
+        "Coq au Vin \u20ac19",
+        "Beef Bourguignon \u20ac21",
+        "Croque Monsieur \u20ac12",
+        "French Onion Soup \u20ac8",
+        "Escargots \u20ac14",
+        "Cr\u00e8me Br\u00fbl\u00e9e \u20ac7",
+        "Croissant \u20ac4",
+        "Champagne \u20ac18"
+      ],
       "description": "Classic French cuisine with elegant presentation and extensive wine list."
     },
     {
@@ -233,10 +518,27 @@
       "x": 390,
       "y": 505,
       "openingHours": "07:00-21:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["hawaiian", "healthy", "quick-bite", "seafood"],
-      "menu": ["Salmon Poke Bowl €14", "Tuna Poke Bowl €15", "Tofu Poke Bowl €12", "Shrimp Poke Bowl €16", "Seaweed Salad €5", "Edamame €4", "Coconut Water €4", "Acai Bowl €9"],
+      "tags": [
+        "hawaiian",
+        "healthy",
+        "quick-bite",
+        "seafood"
+      ],
+      "menu": [
+        "Salmon Poke Bowl \u20ac14",
+        "Tuna Poke Bowl \u20ac15",
+        "Tofu Poke Bowl \u20ac12",
+        "Shrimp Poke Bowl \u20ac16",
+        "Seaweed Salad \u20ac5",
+        "Edamame \u20ac4",
+        "Coconut Water \u20ac4",
+        "Acai Bowl \u20ac9"
+      ],
       "description": "Fresh Hawaiian-style poke bowls with customizable toppings."
     },
     {
@@ -248,10 +550,27 @@
       "x": 305,
       "y": 105,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [3, 7],
+      "avgWaitTime": [
+        3,
+        7
+      ],
       "priceLevel": 1,
-      "tags": ["sandwiches", "quick-bite", "grab-and-go", "vegetarian"],
-      "menu": ["Club Sandwich €8", "BLT €7", "Tuna Melt €8", "Veggie Wrap €7", "Chicken Caesar Wrap €9", "Soup of the Day €5", "Cookie €2", "Iced Coffee €4"],
+      "tags": [
+        "sandwiches",
+        "quick-bite",
+        "grab-and-go",
+        "vegetarian"
+      ],
+      "menu": [
+        "Club Sandwich \u20ac8",
+        "BLT \u20ac7",
+        "Tuna Melt \u20ac8",
+        "Veggie Wrap \u20ac7",
+        "Chicken Caesar Wrap \u20ac9",
+        "Soup of the Day \u20ac5",
+        "Cookie \u20ac2",
+        "Iced Coffee \u20ac4"
+      ],
       "description": "Quick grab-and-go sandwiches and wraps for travelers on the move."
     },
     {
@@ -263,10 +582,27 @@
       "x": 110,
       "y": 305,
       "openingHours": "08:00-21:00",
-      "avgWaitTime": [8, 15],
+      "avgWaitTime": [
+        8,
+        15
+      ],
       "priceLevel": 2,
-      "tags": ["chinese", "dim-sum", "quick-bite", "family-friendly"],
-      "menu": ["Har Gow (4) €8", "Siu Mai (4) €7", "Char Siu Bao (3) €6", "Spring Rolls (4) €7", "Fried Rice €9", "Wonton Soup €8", "Egg Tart (2) €4", "Jasmine Tea €3"],
+      "tags": [
+        "chinese",
+        "dim-sum",
+        "quick-bite",
+        "family-friendly"
+      ],
+      "menu": [
+        "Har Gow (4) \u20ac8",
+        "Siu Mai (4) \u20ac7",
+        "Char Siu Bao (3) \u20ac6",
+        "Spring Rolls (4) \u20ac7",
+        "Fried Rice \u20ac9",
+        "Wonton Soup \u20ac8",
+        "Egg Tart (2) \u20ac4",
+        "Jasmine Tea \u20ac3"
+      ],
       "description": "Traditional Chinese dim sum served fresh throughout the day."
     },
     {
@@ -278,10 +614,27 @@
       "x": 405,
       "y": 115,
       "openingHours": "10:00-01:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["cocktails", "premium", "lounge-vibe", "wine"],
-      "menu": ["Signature Cocktail €14", "Mojito €12", "Gin & Tonic €11", "Whiskey Selection €15-35", "Champagne Glass €16", "Beer Draft €7", "Wine Glass €10", "Premium Spirits €18"],
+      "tags": [
+        "cocktails",
+        "premium",
+        "lounge-vibe",
+        "wine"
+      ],
+      "menu": [
+        "Signature Cocktail \u20ac14",
+        "Mojito \u20ac12",
+        "Gin & Tonic \u20ac11",
+        "Whiskey Selection \u20ac15-35",
+        "Champagne Glass \u20ac16",
+        "Beer Draft \u20ac7",
+        "Wine Glass \u20ac10",
+        "Premium Spirits \u20ac18"
+      ],
       "description": "Upscale bar with craft cocktails, premium spirits, and panoramic views."
     },
     {
@@ -293,10 +646,27 @@
       "x": 275,
       "y": 100,
       "openingHours": "08:00-23:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["pub", "beer", "casual", "sports"],
-      "menu": ["Guinness Pint €7", "Irish Whiskey €9", "Fish & Chips €14", "Beef Stew €13", "Wings Platter €11", "Nachos €9", "Cider €6", "Irish Coffee €8"],
+      "tags": [
+        "pub",
+        "beer",
+        "casual",
+        "sports"
+      ],
+      "menu": [
+        "Guinness Pint \u20ac7",
+        "Irish Whiskey \u20ac9",
+        "Fish & Chips \u20ac14",
+        "Beef Stew \u20ac13",
+        "Wings Platter \u20ac11",
+        "Nachos \u20ac9",
+        "Cider \u20ac6",
+        "Irish Coffee \u20ac8"
+      ],
       "description": "Traditional Irish pub atmosphere with draft beers and hearty pub food."
     },
     {
@@ -308,10 +678,27 @@
       "x": 255,
       "y": 305,
       "openingHours": "11:00-23:00",
-      "avgWaitTime": [8, 15],
+      "avgWaitTime": [
+        8,
+        15
+      ],
       "priceLevel": 3,
-      "tags": ["wine", "tapas", "spanish", "sit-down"],
-      "menu": ["Rioja Wine Glass €12", "Cava €14", "Jamón Ibérico €16", "Patatas Bravas €7", "Gambas al Ajillo €14", "Chorizo €8", "Manchego Cheese €9", "Sangria Pitcher €22"],
+      "tags": [
+        "wine",
+        "tapas",
+        "spanish",
+        "sit-down"
+      ],
+      "menu": [
+        "Rioja Wine Glass \u20ac12",
+        "Cava \u20ac14",
+        "Jam\u00f3n Ib\u00e9rico \u20ac16",
+        "Patatas Bravas \u20ac7",
+        "Gambas al Ajillo \u20ac14",
+        "Chorizo \u20ac8",
+        "Manchego Cheese \u20ac9",
+        "Sangria Pitcher \u20ac22"
+      ],
       "description": "Spanish wine bar serving authentic tapas and curated wine selection."
     },
     {
@@ -323,10 +710,27 @@
       "x": 415,
       "y": 300,
       "openingHours": "09:00-00:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["sports", "beer", "casual", "tv"],
-      "menu": ["Beer Bucket (5) €25", "Craft Beer €8", "Loaded Nachos €12", "Buffalo Wings €13", "Sliders (3) €11", "Onion Rings €6", "Soft Drinks €4", "Shots €6"],
+      "tags": [
+        "sports",
+        "beer",
+        "casual",
+        "tv"
+      ],
+      "menu": [
+        "Beer Bucket (5) \u20ac25",
+        "Craft Beer \u20ac8",
+        "Loaded Nachos \u20ac12",
+        "Buffalo Wings \u20ac13",
+        "Sliders (3) \u20ac11",
+        "Onion Rings \u20ac6",
+        "Soft Drinks \u20ac4",
+        "Shots \u20ac6"
+      ],
       "description": "Sports bar with multiple screens, draft beers, and game-day snacks."
     },
     {
@@ -338,10 +742,27 @@
       "x": 415,
       "y": 500,
       "openingHours": "10:00-22:00",
-      "avgWaitTime": [3, 8],
+      "avgWaitTime": [
+        3,
+        8
+      ],
       "priceLevel": 3,
-      "tags": ["champagne", "premium", "luxury", "wine"],
-      "menu": ["Champagne Glass €18", "Champagne Bottle €85", "Prosecco €12", "Caviar Service €45", "Oysters (6) €22", "Cheese Platter €16", "Macarons (6) €8", "Bellini €14"],
+      "tags": [
+        "champagne",
+        "premium",
+        "luxury",
+        "wine"
+      ],
+      "menu": [
+        "Champagne Glass \u20ac18",
+        "Champagne Bottle \u20ac85",
+        "Prosecco \u20ac12",
+        "Caviar Service \u20ac45",
+        "Oysters (6) \u20ac22",
+        "Cheese Platter \u20ac16",
+        "Macarons (6) \u20ac8",
+        "Bellini \u20ac14"
+      ],
       "description": "Elegant champagne bar offering premium bubbles and luxury bites."
     },
     {
@@ -353,10 +774,27 @@
       "x": 245,
       "y": 505,
       "openingHours": "10:00-23:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 2,
-      "tags": ["craft-beer", "beer", "casual", "local"],
-      "menu": ["IPA Pint €9", "Stout €8", "Wheat Beer €8", "Beer Flight (4) €14", "Pretzel €6", "Sausage Platter €13", "Beer Cheese Dip €7", "Peanuts €3"],
+      "tags": [
+        "craft-beer",
+        "beer",
+        "casual",
+        "local"
+      ],
+      "menu": [
+        "IPA Pint \u20ac9",
+        "Stout \u20ac8",
+        "Wheat Beer \u20ac8",
+        "Beer Flight (4) \u20ac14",
+        "Pretzel \u20ac6",
+        "Sausage Platter \u20ac13",
+        "Beer Cheese Dip \u20ac7",
+        "Peanuts \u20ac3"
+      ],
       "description": "Craft beer bar featuring local and international microbrews."
     },
     {
@@ -368,10 +806,27 @@
       "x": 415,
       "y": 80,
       "openingHours": "11:00-01:00",
-      "avgWaitTime": [7, 15],
+      "avgWaitTime": [
+        7,
+        15
+      ],
       "priceLevel": 3,
-      "tags": ["cocktails", "premium", "lounge-vibe", "mixology"],
-      "menu": ["Classic Martini €13", "Old Fashioned €14", "Espresso Martini €13", "Negroni €12", "Margarita €12", "Cosmopolitan €13", "Premium Gin €16", "Tapas Plate €15"],
+      "tags": [
+        "cocktails",
+        "premium",
+        "lounge-vibe",
+        "mixology"
+      ],
+      "menu": [
+        "Classic Martini \u20ac13",
+        "Old Fashioned \u20ac14",
+        "Espresso Martini \u20ac13",
+        "Negroni \u20ac12",
+        "Margarita \u20ac12",
+        "Cosmopolitan \u20ac13",
+        "Premium Gin \u20ac16",
+        "Tapas Plate \u20ac15"
+      ],
       "description": "Sophisticated cocktail lounge with expert mixologists and creative drinks."
     },
     {
@@ -383,10 +838,28 @@
       "x": 105,
       "y": 95,
       "openingHours": "05:00-22:00",
-      "avgWaitTime": [3, 6],
+      "avgWaitTime": [
+        3,
+        6
+      ],
       "priceLevel": 2,
-      "tags": ["healthy", "juice", "smoothies", "quick-bite", "vegan"],
-      "menu": ["Green Detox Juice €7", "Berry Smoothie €8", "Protein Shake €9", "Fresh Orange Juice €6", "Acai Bowl €10", "Energy Shot €4", "Coconut Water €5", "Granola Bar €3"],
+      "tags": [
+        "healthy",
+        "juice",
+        "smoothies",
+        "quick-bite",
+        "vegan"
+      ],
+      "menu": [
+        "Green Detox Juice \u20ac7",
+        "Berry Smoothie \u20ac8",
+        "Protein Shake \u20ac9",
+        "Fresh Orange Juice \u20ac6",
+        "Acai Bowl \u20ac10",
+        "Energy Shot \u20ac4",
+        "Coconut Water \u20ac5",
+        "Granola Bar \u20ac3"
+      ],
       "description": "Healthy juice and smoothie bar with fresh ingredients and superfoods."
     },
     {
@@ -398,11 +871,28 @@
       "x": 305,
       "y": 295,
       "openingHours": "06:00-23:00",
-      "avgWaitTime": [4, 8],
+      "avgWaitTime": [
+        4,
+        8
+      ],
       "priceLevel": 2,
-      "tags": ["coffee", "cocktails", "quick-bite", "casual"],
-      "menu": ["Espresso €3.50", "Irish Coffee €9", "Baileys Coffee €10", "Aperol Spritz €11", "Beer €6", "Wine €9", "Pastry €4", "Tiramisu €6"],
-      "description": "Hybrid café-bar serving coffee by day and cocktails by evening."
+      "tags": [
+        "coffee",
+        "cocktails",
+        "quick-bite",
+        "casual"
+      ],
+      "menu": [
+        "Espresso \u20ac3.50",
+        "Irish Coffee \u20ac9",
+        "Baileys Coffee \u20ac10",
+        "Aperol Spritz \u20ac11",
+        "Beer \u20ac6",
+        "Wine \u20ac9",
+        "Pastry \u20ac4",
+        "Tiramisu \u20ac6"
+      ],
+      "description": "Hybrid caf\u00e9-bar serving coffee by day and cocktails by evening."
     },
     {
       "id": "poi-b010",
@@ -413,10 +903,27 @@
       "x": 395,
       "y": 510,
       "openingHours": "12:00-23:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["tequila", "mexican", "casual", "shots"],
-      "menu": ["Margarita €11", "Tequila Shot €7", "Paloma €10", "Mezcal €12", "Tacos (3) €10", "Guacamole €7", "Quesadilla €9", "Corona Beer €6"],
+      "tags": [
+        "tequila",
+        "mexican",
+        "casual",
+        "shots"
+      ],
+      "menu": [
+        "Margarita \u20ac11",
+        "Tequila Shot \u20ac7",
+        "Paloma \u20ac10",
+        "Mezcal \u20ac12",
+        "Tacos (3) \u20ac10",
+        "Guacamole \u20ac7",
+        "Quesadilla \u20ac9",
+        "Corona Beer \u20ac6"
+      ],
       "description": "Mexican-themed bar specializing in tequila and mezcal cocktails."
     },
     {
@@ -428,10 +935,27 @@
       "x": 405,
       "y": 305,
       "openingHours": "12:00-00:00",
-      "avgWaitTime": [6, 12],
+      "avgWaitTime": [
+        6,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["whiskey", "premium", "lounge-vibe", "cigars"],
-      "menu": ["Single Malt Scotch €18-45", "Bourbon €15", "Irish Whiskey €14", "Whiskey Flight €28", "Cigar Selection €20-50", "Cheese Board €14", "Chocolate Pairing €12", "Cognac €22"],
+      "tags": [
+        "whiskey",
+        "premium",
+        "lounge-vibe",
+        "cigars"
+      ],
+      "menu": [
+        "Single Malt Scotch \u20ac18-45",
+        "Bourbon \u20ac15",
+        "Irish Whiskey \u20ac14",
+        "Whiskey Flight \u20ac28",
+        "Cigar Selection \u20ac20-50",
+        "Cheese Board \u20ac14",
+        "Chocolate Pairing \u20ac12",
+        "Cognac \u20ac22"
+      ],
       "description": "Premium whiskey lounge with rare bottles and cigar selection."
     },
     {
@@ -443,10 +967,27 @@
       "x": 395,
       "y": 120,
       "openingHours": "10:00-22:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["tropical", "cocktails", "casual", "beach-theme"],
-      "menu": ["Piña Colada €12", "Mai Tai €11", "Rum Punch €10", "Daiquiri €11", "Coconut Shrimp €13", "Fish Tacos €12", "Frozen Margarita €12", "Tropical Smoothie €8"],
+      "tags": [
+        "tropical",
+        "cocktails",
+        "casual",
+        "beach-theme"
+      ],
+      "menu": [
+        "Pi\u00f1a Colada \u20ac12",
+        "Mai Tai \u20ac11",
+        "Rum Punch \u20ac10",
+        "Daiquiri \u20ac11",
+        "Coconut Shrimp \u20ac13",
+        "Fish Tacos \u20ac12",
+        "Frozen Margarita \u20ac12",
+        "Tropical Smoothie \u20ac8"
+      ],
       "description": "Tropical-themed bar with beach vibes and fruity cocktails."
     },
     {
@@ -458,10 +999,27 @@
       "x": 405,
       "y": 85,
       "openingHours": "11:00-22:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 3,
-      "tags": ["sake", "japanese", "premium", "sushi"],
-      "menu": ["Premium Sake €16", "Sake Flight €22", "Plum Wine €12", "Japanese Beer €8", "Edamame €5", "Sushi Rolls €14", "Tempura €12", "Mochi Ice Cream €6"],
+      "tags": [
+        "sake",
+        "japanese",
+        "premium",
+        "sushi"
+      ],
+      "menu": [
+        "Premium Sake \u20ac16",
+        "Sake Flight \u20ac22",
+        "Plum Wine \u20ac12",
+        "Japanese Beer \u20ac8",
+        "Edamame \u20ac5",
+        "Sushi Rolls \u20ac14",
+        "Tempura \u20ac12",
+        "Mochi Ice Cream \u20ac6"
+      ],
       "description": "Japanese sake bar with curated selection and authentic small plates."
     },
     {
@@ -473,10 +1031,27 @@
       "x": 260,
       "y": 500,
       "openingHours": "11:00-23:00",
-      "avgWaitTime": [6, 12],
+      "avgWaitTime": [
+        6,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["gin", "cocktails", "premium", "botanical"],
-      "menu": ["Gin & Tonic €13", "Botanical Gin €16", "Gin Martini €14", "Negroni €13", "Gin Flight €24", "Cucumber Bites €8", "Olives €5", "Tonic Selection €4"],
+      "tags": [
+        "gin",
+        "cocktails",
+        "premium",
+        "botanical"
+      ],
+      "menu": [
+        "Gin & Tonic \u20ac13",
+        "Botanical Gin \u20ac16",
+        "Gin Martini \u20ac14",
+        "Negroni \u20ac13",
+        "Gin Flight \u20ac24",
+        "Cucumber Bites \u20ac8",
+        "Olives \u20ac5",
+        "Tonic Selection \u20ac4"
+      ],
       "description": "Botanical gin bar with 50+ gin varieties and artisan tonics."
     },
     {
@@ -488,10 +1063,27 @@
       "x": 265,
       "y": 300,
       "openingHours": "09:00-22:00",
-      "avgWaitTime": [4, 8],
+      "avgWaitTime": [
+        4,
+        8
+      ],
       "priceLevel": 2,
-      "tags": ["prosecco", "wine", "italian", "casual"],
-      "menu": ["Prosecco Glass €10", "Aperol Spritz €11", "Bellini €10", "Rossini €11", "Antipasto Platter €14", "Bruschetta €7", "Olives & Bread €5", "Gelato €5"],
+      "tags": [
+        "prosecco",
+        "wine",
+        "italian",
+        "casual"
+      ],
+      "menu": [
+        "Prosecco Glass \u20ac10",
+        "Aperol Spritz \u20ac11",
+        "Bellini \u20ac10",
+        "Rossini \u20ac11",
+        "Antipasto Platter \u20ac14",
+        "Bruschetta \u20ac7",
+        "Olives & Bread \u20ac5",
+        "Gelato \u20ac5"
+      ],
       "description": "Italian-style prosecco bar with sparkling wines and light bites."
     },
     {
@@ -503,10 +1095,28 @@
       "x": 270,
       "y": 95,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [5, 15],
+      "avgWaitTime": [
+        5,
+        15
+      ],
       "priceLevel": 3,
-      "tags": ["duty-free", "cosmetics", "alcohol", "perfume", "luxury"],
-      "menu": ["Designer Perfumes", "Premium Spirits", "Cosmetics", "Skincare", "Sunglasses", "Watches", "Chocolates", "Tobacco"],
+      "tags": [
+        "duty-free",
+        "cosmetics",
+        "alcohol",
+        "perfume",
+        "luxury"
+      ],
+      "menu": [
+        "Designer Perfumes",
+        "Premium Spirits",
+        "Cosmetics",
+        "Skincare",
+        "Sunglasses",
+        "Watches",
+        "Chocolates",
+        "Tobacco"
+      ],
       "description": "Main duty-free store with cosmetics, alcohol, tobacco, and luxury goods."
     },
     {
@@ -518,10 +1128,27 @@
       "x": 400,
       "y": 75,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["electronics", "tech", "gadgets", "accessories"],
-      "menu": ["Headphones", "Chargers", "Power Banks", "Travel Adapters", "Phone Cases", "Tablets", "Cameras", "Smart Watches"],
+      "tags": [
+        "electronics",
+        "tech",
+        "gadgets",
+        "accessories"
+      ],
+      "menu": [
+        "Headphones",
+        "Chargers",
+        "Power Banks",
+        "Travel Adapters",
+        "Phone Cases",
+        "Tablets",
+        "Cameras",
+        "Smart Watches"
+      ],
       "description": "Electronics store with travel tech, accessories, and last-minute gadgets."
     },
     {
@@ -533,10 +1160,27 @@
       "x": 280,
       "y": 105,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [8, 20],
+      "avgWaitTime": [
+        8,
+        20
+      ],
       "priceLevel": 3,
-      "tags": ["fashion", "clothing", "luxury", "designer"],
-      "menu": ["Designer Clothing", "Handbags", "Scarves", "Belts", "Shoes", "Jewelry", "Sunglasses", "Ties"],
+      "tags": [
+        "fashion",
+        "clothing",
+        "luxury",
+        "designer"
+      ],
+      "menu": [
+        "Designer Clothing",
+        "Handbags",
+        "Scarves",
+        "Belts",
+        "Shoes",
+        "Jewelry",
+        "Sunglasses",
+        "Ties"
+      ],
       "description": "Upscale fashion boutique featuring international designer brands."
     },
     {
@@ -548,10 +1192,27 @@
       "x": 310,
       "y": 100,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [3, 8],
+      "avgWaitTime": [
+        3,
+        8
+      ],
       "priceLevel": 2,
-      "tags": ["books", "magazines", "newspapers", "snacks"],
-      "menu": ["Bestseller Books", "Magazines", "Newspapers", "Travel Guides", "Snacks", "Drinks", "Stationery", "Gifts"],
+      "tags": [
+        "books",
+        "magazines",
+        "newspapers",
+        "snacks"
+      ],
+      "menu": [
+        "Bestseller Books",
+        "Magazines",
+        "Newspapers",
+        "Travel Guides",
+        "Snacks",
+        "Drinks",
+        "Stationery",
+        "Gifts"
+      ],
       "description": "Bookstore with bestsellers, magazines, newspapers, and travel essentials."
     },
     {
@@ -563,10 +1224,27 @@
       "x": 245,
       "y": 310,
       "openingHours": "08:00-22:00",
-      "avgWaitTime": [10, 25],
+      "avgWaitTime": [
+        10,
+        25
+      ],
       "priceLevel": 3,
-      "tags": ["watches", "luxury", "jewelry", "premium"],
-      "menu": ["Rolex", "Omega", "TAG Heuer", "Cartier", "Breitling", "IWC", "Patek Philippe", "Jewelry"],
+      "tags": [
+        "watches",
+        "luxury",
+        "jewelry",
+        "premium"
+      ],
+      "menu": [
+        "Rolex",
+        "Omega",
+        "TAG Heuer",
+        "Cartier",
+        "Breitling",
+        "IWC",
+        "Patek Philippe",
+        "Jewelry"
+      ],
       "description": "Exclusive watch boutique featuring Swiss luxury timepieces."
     },
     {
@@ -578,10 +1256,27 @@
       "x": 115,
       "y": 300,
       "openingHours": "06:00-23:00",
-      "avgWaitTime": [5, 10],
+      "avgWaitTime": [
+        5,
+        10
+      ],
       "priceLevel": 1,
-      "tags": ["souvenirs", "gifts", "local", "budget"],
-      "menu": ["Magnets", "Keychains", "Postcards", "T-Shirts", "Mugs", "Local Crafts", "Toys", "Snacks"],
+      "tags": [
+        "souvenirs",
+        "gifts",
+        "local",
+        "budget"
+      ],
+      "menu": [
+        "Magnets",
+        "Keychains",
+        "Postcards",
+        "T-Shirts",
+        "Mugs",
+        "Local Crafts",
+        "Toys",
+        "Snacks"
+      ],
       "description": "Souvenir shop with local gifts, postcards, and travel mementos."
     },
     {
@@ -593,10 +1288,27 @@
       "x": 390,
       "y": 295,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [4, 10],
+      "avgWaitTime": [
+        4,
+        10
+      ],
       "priceLevel": 2,
-      "tags": ["chocolate", "sweets", "gifts", "belgian"],
-      "menu": ["Belgian Chocolates", "Truffles", "Pralines", "Chocolate Bars", "Gift Boxes", "Fudge", "Caramels", "Hot Chocolate"],
+      "tags": [
+        "chocolate",
+        "sweets",
+        "gifts",
+        "belgian"
+      ],
+      "menu": [
+        "Belgian Chocolates",
+        "Truffles",
+        "Pralines",
+        "Chocolate Bars",
+        "Gift Boxes",
+        "Fudge",
+        "Caramels",
+        "Hot Chocolate"
+      ],
       "description": "Premium chocolate shop with Belgian chocolates and artisan sweets."
     },
     {
@@ -608,10 +1320,27 @@
       "x": 240,
       "y": 500,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [7, 15],
+      "avgWaitTime": [
+        7,
+        15
+      ],
       "priceLevel": 2,
-      "tags": ["sports", "outdoor", "activewear", "gear"],
-      "menu": ["Athletic Wear", "Running Shoes", "Backpacks", "Water Bottles", "Sunglasses", "Caps", "Fitness Trackers", "Travel Gear"],
+      "tags": [
+        "sports",
+        "outdoor",
+        "activewear",
+        "gear"
+      ],
+      "menu": [
+        "Athletic Wear",
+        "Running Shoes",
+        "Backpacks",
+        "Water Bottles",
+        "Sunglasses",
+        "Caps",
+        "Fitness Trackers",
+        "Travel Gear"
+      ],
       "description": "Sports and outdoor store with activewear and travel gear."
     },
     {
@@ -623,10 +1352,27 @@
       "x": 385,
       "y": 500,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [8, 15],
+      "avgWaitTime": [
+        8,
+        15
+      ],
       "priceLevel": 2,
-      "tags": ["kids", "toys", "games", "family"],
-      "menu": ["Toys", "Games", "Puzzles", "Stuffed Animals", "Books", "Art Supplies", "Snacks", "Travel Activities"],
+      "tags": [
+        "kids",
+        "toys",
+        "games",
+        "family"
+      ],
+      "menu": [
+        "Toys",
+        "Games",
+        "Puzzles",
+        "Stuffed Animals",
+        "Books",
+        "Art Supplies",
+        "Snacks",
+        "Travel Activities"
+      ],
       "description": "Children's store with toys, games, and entertainment for young travelers."
     },
     {
@@ -638,10 +1384,27 @@
       "x": 115,
       "y": 100,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [3, 8],
+      "avgWaitTime": [
+        3,
+        8
+      ],
       "priceLevel": 2,
-      "tags": ["pharmacy", "health", "medicine", "essentials"],
-      "menu": ["Medications", "First Aid", "Vitamins", "Skincare", "Hygiene Products", "Travel Sickness", "Pain Relief", "Prescriptions"],
+      "tags": [
+        "pharmacy",
+        "health",
+        "medicine",
+        "essentials"
+      ],
+      "menu": [
+        "Medications",
+        "First Aid",
+        "Vitamins",
+        "Skincare",
+        "Hygiene Products",
+        "Travel Sickness",
+        "Pain Relief",
+        "Prescriptions"
+      ],
       "description": "Full-service pharmacy with medications, health products, and travel essentials."
     },
     {
@@ -653,10 +1416,27 @@
       "x": 275,
       "y": 305,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [6, 15],
+      "avgWaitTime": [
+        6,
+        15
+      ],
       "priceLevel": 3,
-      "tags": ["perfume", "cosmetics", "luxury", "beauty"],
-      "menu": ["Designer Fragrances", "Niche Perfumes", "Gift Sets", "Body Care", "Candles", "Travel Sizes", "Samples", "Beauty Tools"],
+      "tags": [
+        "perfume",
+        "cosmetics",
+        "luxury",
+        "beauty"
+      ],
+      "menu": [
+        "Designer Fragrances",
+        "Niche Perfumes",
+        "Gift Sets",
+        "Body Care",
+        "Candles",
+        "Travel Sizes",
+        "Samples",
+        "Beauty Tools"
+      ],
       "description": "Exclusive perfume boutique with designer and niche fragrances."
     },
     {
@@ -668,10 +1448,27 @@
       "x": 250,
       "y": 495,
       "openingHours": "08:00-23:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["alcohol", "wine", "spirits", "duty-free"],
-      "menu": ["Premium Whiskey", "Fine Wines", "Champagne", "Vodka", "Rum", "Gin", "Liqueurs", "Gift Sets"],
+      "tags": [
+        "alcohol",
+        "wine",
+        "spirits",
+        "duty-free"
+      ],
+      "menu": [
+        "Premium Whiskey",
+        "Fine Wines",
+        "Champagne",
+        "Vodka",
+        "Rum",
+        "Gin",
+        "Liqueurs",
+        "Gift Sets"
+      ],
       "description": "Specialty alcohol shop with premium spirits and fine wines."
     },
     {
@@ -683,10 +1480,27 @@
       "x": 255,
       "y": 95,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [8, 20],
+      "avgWaitTime": [
+        8,
+        20
+      ],
       "priceLevel": 3,
-      "tags": ["luggage", "travel", "bags", "accessories"],
-      "menu": ["Suitcases", "Carry-ons", "Backpacks", "Travel Pillows", "Locks", "Packing Cubes", "Toiletry Bags", "Laptop Bags"],
+      "tags": [
+        "luggage",
+        "travel",
+        "bags",
+        "accessories"
+      ],
+      "menu": [
+        "Suitcases",
+        "Carry-ons",
+        "Backpacks",
+        "Travel Pillows",
+        "Locks",
+        "Packing Cubes",
+        "Toiletry Bags",
+        "Laptop Bags"
+      ],
       "description": "Travel accessories store with luggage, bags, and travel essentials."
     },
     {
@@ -698,10 +1512,27 @@
       "x": 400,
       "y": 310,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 2,
-      "tags": ["food", "gourmet", "gifts", "local"],
-      "menu": ["Artisan Cheese", "Cured Meats", "Olive Oil", "Wine", "Preserves", "Cookies", "Coffee Beans", "Gift Baskets"],
+      "tags": [
+        "food",
+        "gourmet",
+        "gifts",
+        "local"
+      ],
+      "menu": [
+        "Artisan Cheese",
+        "Cured Meats",
+        "Olive Oil",
+        "Wine",
+        "Preserves",
+        "Cookies",
+        "Coffee Beans",
+        "Gift Baskets"
+      ],
       "description": "Gourmet food shop with local delicacies and artisan products."
     },
     {
@@ -713,10 +1544,27 @@
       "x": 410,
       "y": 505,
       "openingHours": "08:00-22:00",
-      "avgWaitTime": [10, 20],
+      "avgWaitTime": [
+        10,
+        20
+      ],
       "priceLevel": 3,
-      "tags": ["jewelry", "luxury", "diamonds", "gold"],
-      "menu": ["Diamond Rings", "Gold Necklaces", "Bracelets", "Earrings", "Watches", "Pearls", "Gemstones", "Custom Designs"],
+      "tags": [
+        "jewelry",
+        "luxury",
+        "diamonds",
+        "gold"
+      ],
+      "menu": [
+        "Diamond Rings",
+        "Gold Necklaces",
+        "Bracelets",
+        "Earrings",
+        "Watches",
+        "Pearls",
+        "Gemstones",
+        "Custom Designs"
+      ],
       "description": "Fine jewelry boutique with diamonds, gold, and precious stones."
     },
     {
@@ -728,10 +1576,27 @@
       "x": 385,
       "y": 120,
       "openingHours": "07:00-22:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 3,
-      "tags": ["sunglasses", "eyewear", "designer", "accessories"],
-      "menu": ["Ray-Ban", "Oakley", "Prada", "Gucci", "Tom Ford", "Versace", "Polarized Lenses", "Cases"],
+      "tags": [
+        "sunglasses",
+        "eyewear",
+        "designer",
+        "accessories"
+      ],
+      "menu": [
+        "Ray-Ban",
+        "Oakley",
+        "Prada",
+        "Gucci",
+        "Tom Ford",
+        "Versace",
+        "Polarized Lenses",
+        "Cases"
+      ],
       "description": "Designer sunglasses store with premium eyewear brands."
     },
     {
@@ -743,10 +1608,27 @@
       "x": 420,
       "y": 75,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [0, 5],
+      "avgWaitTime": [
+        0,
+        5
+      ],
       "priceLevel": 3,
-      "tags": ["lounge", "wifi", "showers", "buffet"],
-      "menu": ["Buffet included", "Premium drinks", "Hot meals", "Fresh fruit", "Pastries", "Soups", "Salads", "Desserts"],
+      "tags": [
+        "lounge",
+        "wifi",
+        "showers",
+        "buffet"
+      ],
+      "menu": [
+        "Buffet included",
+        "Premium drinks",
+        "Hot meals",
+        "Fresh fruit",
+        "Pastries",
+        "Soups",
+        "Salads",
+        "Desserts"
+      ],
       "description": "Premium lounge with buffet, showers, and comfortable seating."
     },
     {
@@ -758,10 +1640,25 @@
       "x": 420,
       "y": 300,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [0, 5],
+      "avgWaitTime": [
+        0,
+        5
+      ],
       "priceLevel": 3,
-      "tags": ["lounge", "wifi", "business", "quiet"],
-      "menu": ["Light buffet", "Coffee bar", "Alcoholic drinks", "Snacks", "Newspapers", "Magazines"],
+      "tags": [
+        "lounge",
+        "wifi",
+        "business",
+        "quiet"
+      ],
+      "menu": [
+        "Light buffet",
+        "Coffee bar",
+        "Alcoholic drinks",
+        "Snacks",
+        "Newspapers",
+        "Magazines"
+      ],
       "description": "Business lounge with quiet work areas and refreshments."
     },
     {
@@ -773,9 +1670,16 @@
       "x": 120,
       "y": 100,
       "openingHours": "24/7",
-      "avgWaitTime": [2, 10],
+      "avgWaitTime": [
+        2,
+        10
+      ],
       "priceLevel": 0,
-      "tags": ["help", "information", "assistance"],
+      "tags": [
+        "help",
+        "information",
+        "assistance"
+      ],
       "menu": [],
       "description": "Information desk for airport assistance and directions."
     },
@@ -788,9 +1692,16 @@
       "x": 160,
       "y": 125,
       "openingHours": "24/7",
-      "avgWaitTime": [5, 15],
+      "avgWaitTime": [
+        5,
+        15
+      ],
       "priceLevel": 0,
-      "tags": ["baggage", "lost-and-found", "storage"],
+      "tags": [
+        "baggage",
+        "lost-and-found",
+        "storage"
+      ],
       "menu": [],
       "description": "Baggage assistance, lost luggage, and storage services."
     },
@@ -803,10 +1714,21 @@
       "x": 105,
       "y": 110,
       "openingHours": "06:00-22:00",
-      "avgWaitTime": [3, 8],
+      "avgWaitTime": [
+        3,
+        8
+      ],
       "priceLevel": 1,
-      "tags": ["sim-card", "mobile", "connectivity"],
-      "menu": ["Tourist SIM €15", "Data Plans", "Top-ups"],
+      "tags": [
+        "sim-card",
+        "mobile",
+        "connectivity"
+      ],
+      "menu": [
+        "Tourist SIM \u20ac15",
+        "Data Plans",
+        "Top-ups"
+      ],
       "description": "Mobile SIM cards and data plans for travelers."
     },
     {
@@ -818,9 +1740,16 @@
       "x": 105,
       "y": 310,
       "openingHours": "05:00-23:00",
-      "avgWaitTime": [5, 12],
+      "avgWaitTime": [
+        5,
+        12
+      ],
       "priceLevel": 0,
-      "tags": ["currency", "exchange", "money"],
+      "tags": [
+        "currency",
+        "exchange",
+        "money"
+      ],
       "menu": [],
       "description": "Currency exchange with competitive rates."
     },
@@ -833,10 +1762,24 @@
       "x": 310,
       "y": 300,
       "openingHours": "05:00-22:00",
-      "avgWaitTime": [3, 7],
+      "avgWaitTime": [
+        3,
+        7
+      ],
       "priceLevel": 1,
-      "tags": ["coffee", "quick-bite", "grab-and-go"],
-      "menu": ["Drip Coffee €2.80", "Latte €3.80", "Muffin €3.20", "Bagel €4.00", "Tea €2.50", "Iced Coffee €4.20"],
+      "tags": [
+        "coffee",
+        "quick-bite",
+        "grab-and-go"
+      ],
+      "menu": [
+        "Drip Coffee \u20ac2.80",
+        "Latte \u20ac3.80",
+        "Muffin \u20ac3.20",
+        "Bagel \u20ac4.00",
+        "Tea \u20ac2.50",
+        "Iced Coffee \u20ac4.20"
+      ],
       "description": "Budget-friendly coffee shop for quick caffeine fixes."
     },
     {
@@ -848,11 +1791,463 @@
       "x": 310,
       "y": 500,
       "openingHours": "06:00-21:00",
-      "avgWaitTime": [2, 5],
+      "avgWaitTime": [
+        2,
+        5
+      ],
       "priceLevel": 2,
-      "tags": ["juice", "healthy", "smoothies", "vegan"],
-      "menu": ["Green Juice €6.50", "Berry Smoothie €7.00", "Protein Bowl €9.00", "Acai Bowl €8.50", "Coconut Water €4.50"],
+      "tags": [
+        "juice",
+        "healthy",
+        "smoothies",
+        "vegan"
+      ],
+      "menu": [
+        "Green Juice \u20ac6.50",
+        "Berry Smoothie \u20ac7.00",
+        "Protein Bowl \u20ac9.00",
+        "Acai Bowl \u20ac8.50",
+        "Coconut Water \u20ac4.50"
+      ],
       "description": "Fresh juice and smoothie bar with healthy options."
+    },
+    {
+      "id": "poi-gate-a1",
+      "name": "Gate A1",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 390,
+      "y": 70,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate A1"
+    },
+    {
+      "id": "poi-gate-a2",
+      "name": "Gate A2",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 400,
+      "y": 70,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate A2"
+    },
+    {
+      "id": "poi-gate-a3",
+      "name": "Gate A3",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 410,
+      "y": 70,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate A3"
+    },
+    {
+      "id": "poi-gate-a4",
+      "name": "Gate A4",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 420,
+      "y": 70,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate A4"
+    },
+    {
+      "id": "poi-gate-b1",
+      "name": "Gate B1",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 390,
+      "y": 130,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate B1"
+    },
+    {
+      "id": "poi-gate-b2",
+      "name": "Gate B2",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 400,
+      "y": 130,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate B2"
+    },
+    {
+      "id": "poi-gate-b3",
+      "name": "Gate B3",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 410,
+      "y": 130,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate B3"
+    },
+    {
+      "id": "poi-gate-b4",
+      "name": "Gate B4",
+      "category": "gate",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 420,
+      "y": 130,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        0,
+        0
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "gate",
+        "departure"
+      ],
+      "menu": [],
+      "description": "Departure Gate B4"
+    },
+    {
+      "id": "poi-wc001",
+      "name": "Restroom A",
+      "category": "wc",
+      "terminal": "T1",
+      "zone": "t1-gates-a",
+      "x": 380,
+      "y": 90,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        2,
+        8
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "restroom",
+        "wc",
+        "bathroom"
+      ],
+      "menu": [],
+      "description": "Public Restroom A"
+    },
+    {
+      "id": "poi-wc002",
+      "name": "Restroom B",
+      "category": "wc",
+      "terminal": "T1",
+      "zone": "t1-gates-b",
+      "x": 380,
+      "y": 140,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        2,
+        8
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "restroom",
+        "wc",
+        "bathroom"
+      ],
+      "menu": [],
+      "description": "Public Restroom B"
+    },
+    {
+      "id": "poi-wc003",
+      "name": "Restroom Central",
+      "category": "wc",
+      "terminal": "T1",
+      "zone": "t1-departures",
+      "x": 250,
+      "y": 120,
+      "openingHours": "24/7",
+      "avgWaitTime": [
+        2,
+        8
+      ],
+      "priceLevel": 0,
+      "tags": [
+        "restroom",
+        "wc",
+        "bathroom"
+      ],
+      "menu": [],
+      "description": "Public Restroom Central"
     }
-  ]
+  ],
+  "navGraph": {
+    "nodes": [
+      {
+        "id": "node-0",
+        "x": 100,
+        "y": 100,
+        "name": "Arrivals Hall"
+      },
+      {
+        "id": "node-1",
+        "x": 150,
+        "y": 100,
+        "name": "Baggage Area"
+      },
+      {
+        "id": "node-2",
+        "x": 200,
+        "y": 100,
+        "name": "Passport Control"
+      },
+      {
+        "id": "node-3",
+        "x": 250,
+        "y": 100,
+        "name": "Central Hub"
+      },
+      {
+        "id": "node-4",
+        "x": 300,
+        "y": 100,
+        "name": "Security"
+      },
+      {
+        "id": "node-5",
+        "x": 350,
+        "y": 100,
+        "name": "Corridor A"
+      },
+      {
+        "id": "node-6",
+        "x": 400,
+        "y": 100,
+        "name": "Gate Corridor Center"
+      },
+      {
+        "id": "node-7",
+        "x": 400,
+        "y": 50,
+        "name": "Gates A Corridor"
+      },
+      {
+        "id": "node-8",
+        "x": 400,
+        "y": 150,
+        "name": "Gates B Corridor"
+      },
+      {
+        "id": "node-9",
+        "x": 250,
+        "y": 150,
+        "name": "Corridor B"
+      },
+      {
+        "id": "node-10",
+        "x": 250,
+        "y": 50,
+        "name": "Corridor C"
+      }
+    ],
+    "edges": [
+      {
+        "from": "node-0",
+        "to": "node-1",
+        "weight": 50
+      },
+      {
+        "from": "node-1",
+        "to": "node-2",
+        "weight": 50
+      },
+      {
+        "from": "node-2",
+        "to": "node-3",
+        "weight": 50
+      },
+      {
+        "from": "node-3",
+        "to": "node-4",
+        "weight": 50
+      },
+      {
+        "from": "node-4",
+        "to": "node-5",
+        "weight": 50
+      },
+      {
+        "from": "node-5",
+        "to": "node-6",
+        "weight": 50
+      },
+      {
+        "from": "node-6",
+        "to": "node-7",
+        "weight": 50
+      },
+      {
+        "from": "node-6",
+        "to": "node-8",
+        "weight": 50
+      },
+      {
+        "from": "node-3",
+        "to": "node-9",
+        "weight": 50
+      },
+      {
+        "from": "node-3",
+        "to": "node-10",
+        "weight": 50
+      },
+      {
+        "from": "node-9",
+        "to": "node-8",
+        "weight": 100
+      },
+      {
+        "from": "node-10",
+        "to": "node-7",
+        "weight": 100
+      }
+    ],
+    "poiLinks": [
+      {
+        "poiId": "poi-gate-a1",
+        "nodeId": "node-7",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-a2",
+        "nodeId": "node-7",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-a3",
+        "nodeId": "node-7",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-a4",
+        "nodeId": "node-7",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-b1",
+        "nodeId": "node-8",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-b2",
+        "nodeId": "node-8",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-b3",
+        "nodeId": "node-8",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-gate-b4",
+        "nodeId": "node-8",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-wc001",
+        "nodeId": "node-7",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-wc002",
+        "nodeId": "node-8",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-wc003",
+        "nodeId": "node-3",
+        "weight": 10
+      },
+      {
+        "poiId": "poi-001",
+        "nodeId": "node-3",
+        "weight": 15
+      },
+      {
+        "poiId": "poi-002",
+        "nodeId": "node-4",
+        "weight": 15
+      },
+      {
+        "poiId": "poi-003",
+        "nodeId": "node-4",
+        "weight": 15
+      }
+    ]
+  }
 }

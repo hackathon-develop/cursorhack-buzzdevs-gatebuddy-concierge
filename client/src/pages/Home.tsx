@@ -24,6 +24,7 @@ import {
   type UserPreferences,
   type POI,
 } from '@/lib/airportLogic';
+import { computeRoute, parsePreferences, type RoutingResult } from '@/lib/routingEngine';
 
 // Map airport names to their map files
 function getAirportMapPath(airportName: string): string {
@@ -49,6 +50,7 @@ export default function Home() {
   const [showResetDialog, setShowResetDialog] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [chatOpen, setChatOpen] = useState(false);
+  const [routingResult, setRoutingResult] = useState<RoutingResult | null>(null);
 
   // Update time until boarding every minute
   useEffect(() => {
@@ -132,6 +134,18 @@ export default function Home() {
       selectedPOIs
     );
     setTimeline(timeline);
+
+    // Compute optimal route with preferences
+    try {
+      const route = computeRoute(
+        `gate-${tripDetails.arrivingGate?.toLowerCase()}`,
+        `gate-${tripDetails.gateNumber?.toLowerCase()}`,
+        preferences.customPreferences || ''
+      );
+      setRoutingResult(route);
+    } catch (error) {
+      console.error('Error computing route:', error);
+    }
 
     completeOnboarding();
 
@@ -217,13 +231,44 @@ export default function Home() {
               <TabsContent value="timeline" className="mt-0 space-y-6">
                 {/* Airport Map */}
                 {state.tripDetails && (
-                  <div className="bg-muted rounded-lg border border-border overflow-hidden">
-                    <div className="h-[450px] w-full bg-muted flex items-center justify-center">
+                  <div className="bg-muted rounded-lg border border-border overflow-hidden relative">
+                    <div className="h-[450px] w-full bg-muted flex items-center justify-center relative">
                       <img
                         src={getAirportMapPath(state.tripDetails.airportName || state.tripDetails.terminal)}
                         alt="Airport Map"
                         className="w-full h-full object-contain"
                       />
+                      {/* Route polyline overlay */}
+                      {routingResult && routingResult.polyline.length > 0 && (
+                        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+                          <defs>
+                            <style>{`
+                              svg { overflow: visible; }
+                            `}</style>
+                          </defs>
+                          <polyline
+                            points={routingResult.polyline.map(([x, y]) => `${x * 2},${y * 1.8}`).join(' ')}
+                            fill="none"
+                            stroke="#3b82f6"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            opacity="0.9"
+                          />
+                          {/* Start point */}
+                          {routingResult.polyline.length > 0 && (
+                            <circle cx={routingResult.polyline[0][0] * 2} cy={routingResult.polyline[0][1] * 1.8} r="8" fill="#10b981" stroke="white" strokeWidth="2" />
+                          )}
+                          {/* End point */}
+                          {routingResult.polyline.length > 0 && (
+                            <circle cx={routingResult.polyline[routingResult.polyline.length - 1][0] * 2} cy={routingResult.polyline[routingResult.polyline.length - 1][1] * 1.8} r="8" fill="#ef4444" stroke="white" strokeWidth="2" />
+                          )}
+                          {/* Intermediate stops */}
+                          {routingResult.stops.slice(1, -1).map((stop, idx) => (
+                            <circle key={idx} cx={stop.x * 2} cy={stop.y * 1.8} r="6" fill="#f59e0b" stroke="white" strokeWidth="1" />
+                          ))}
+                        </svg>
+                      )}
                     </div>
                   </div>
                 )}
