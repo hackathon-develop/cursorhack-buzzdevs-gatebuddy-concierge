@@ -34,7 +34,7 @@ function getAirportMapPath(airportName: string): string {
   
   // Map specific airports to their custom maps
   if (mapName === 'nova-europa-international') {
-    return `/maps/airports/nova-international.png`;
+    return `/maps/airports/nova-europa.png`;
   }
   if (mapName === 'skyward-horizons') {
     return `/maps/airports/skyward-horizons.svg`;
