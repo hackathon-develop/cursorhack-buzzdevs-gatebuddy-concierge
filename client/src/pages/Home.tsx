@@ -229,10 +229,7 @@ export default function Home() {
                 )}
                 
                 {/* Timeline */}
-                <div>
-                  <h2 className="text-xl font-sans font-bold mb-4">Your Action Plan</h2>
-                  <TimelineView timeline={state.timeline} />
-                </div>
+                <TimelineView timeline={state.timeline} />
               </TabsContent>
 
               <TabsContent value="nearby" className="mt-0 space-y-4">
