@@ -101,6 +101,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
 
     const trip: TripDetails = {
       terminal: TERMINAL,
+      airportName: airportName,
       arrivingGate: arrivingGate || 'Unknown',
       gateNumber: departureGate.toUpperCase(),
       isDomestic,

@@ -48,6 +48,7 @@ export interface UserPreferences {
 export interface TripDetails {
   arrivalTime?: Date;
   terminal: string;
+  airportName?: string;
   arrivingGate?: string;
   nextFlightTime?: Date;
   gateNumber: string;
