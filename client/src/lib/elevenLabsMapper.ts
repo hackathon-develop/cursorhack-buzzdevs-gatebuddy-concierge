@@ -12,20 +12,24 @@ export function buildDynamicVariables(
   };
 
   return {
-    // Placeholder values for missing data
-    name: 'Guest',
-    airport_name: 'Nova Europa International',
-    flight_number: tripDetails?.gateNumber ? `NEI${tripDetails.gateNumber.replace(/[A-Z]/g, '')}` : '',
-    origin_city: tripDetails?.isDomestic ? 'Domestic' : 'International',
+    // Passenger information
+    name: 'Sofia',
+    origin_city: 'Stockholm',
+    current_airport: 'Hamburg',
+    destination: 'Denmark',
 
-    // Real data from app state
-    arrival_time: formatTime(tripDetails?.arrivalTime),
-    departure_time: formatTime(tripDetails?.nextFlightTime),
+    // Flight information
+    airport_name: 'Hamburg Airport',
+    flight_number: tripDetails?.gateNumber ? `HAM${tripDetails.gateNumber.replace(/[A-Z]/g, '')}` : 'TBD',
     departure_gate: tripDetails?.gateNumber || 'TBD',
 
-    // Additional useful context
+    // Timing
+    arrival_time: '10:00',
+    departure_time: '14:00',
+
+    // Baggage and other details
+    has_baggage: false,
     terminal: tripDetails?.terminal || 'T1',
-    is_domestic: tripDetails?.isDomestic ?? false,
-    has_baggage: tripDetails?.hasBaggage ?? false,
+    is_domestic: false,
   };
 }

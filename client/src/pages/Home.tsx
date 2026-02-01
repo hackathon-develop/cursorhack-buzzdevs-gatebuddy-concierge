@@ -6,6 +6,7 @@ import { useApp } from '@/contexts/AppContext';
 import { Onboarding } from '@/components/Onboarding';
 import { ChatInterface } from '@/components/ChatInterface';
 import { TimelineView } from '@/components/TimelineView';
+import AirportMap from '@/components/AirportMap';
 import { POICard } from '@/components/POICard';
 import { TimeDisplay } from '@/components/TimeDisplay';
 import { StatusBadge } from '@/components/StatusBadge';
@@ -16,6 +17,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Clock, MapPin, RefreshCw, Sparkles, Coffee, Utensils, ShoppingBag, HelpCircle, AlertCircle, CheckCircle2, Navigation } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import airportData from '@/data/airport.json';
 import {
   build_timeline,
   recommend_pois,
@@ -279,6 +281,22 @@ export default function Home() {
       })
     : state.nearbyPOIs;
 
+  // Get destination location from timeline
+  const getDestinationLocation = () => {
+    if (!state.tripDetails?.gateNumber) return null;
+    // Find gate zone in airport data
+    const gateZone = (airportData.zones as any[]).find(
+      z => z.terminal === state.tripDetails?.terminal && z.id.includes('gates')
+    );
+    if (!gateZone) return null;
+    return { x: gateZone.x, y: gateZone.y, terminal: gateZone.terminal };
+  };
+
+  const destinationLocation = getDestinationLocation();
+  const destinationLabel = state.tripDetails?.gateNumber
+    ? `Gate ${state.tripDetails.gateNumber}`
+    : 'Gate';
+
   // Calculate if adding POI would cause flight miss
   const calculateWouldCauseMiss = (poi: POI & { totalTime?: number }) => {
     if (!timeUntilBoarding || !poi.totalTime) return false;
@@ -417,10 +435,13 @@ export default function Home() {
 
         {/* Right: Data Panels (60%) */}
         <div className="flex-1 overflow-auto">
-          <Tabs defaultValue="timeline" className="h-full flex flex-col">
+          <Tabs defaultValue="map" className="h-full flex flex-col">
             <div className="border-b px-6 py-3 bg-muted/30">
               <TabsList>
-                <TabsTrigger value="timeline">
+                <TabsTrigger value="map">
+                  Your Journey
+                </TabsTrigger>
+                <TabsTrigger value="plan">
                   Your Plan ({state.timeline.length})
                 </TabsTrigger>
                 <TabsTrigger value="nearby">
@@ -430,7 +451,19 @@ export default function Home() {
             </div>
 
             <div className="flex-1 overflow-auto p-6">
-              <TabsContent value="timeline" className="mt-0">
+              <TabsContent value="map" className="mt-0 h-full flex flex-col">
+                <AirportMap
+                  currentLocation={state.currentLocation}
+                  destination={destinationLocation}
+                  destinationLabel={destinationLabel}
+                  pois={state.nearbyPOIs}
+                  zones={airportData.zones as any[]}
+                  timeline={state.timeline}
+                  onPOIClick={handleAddPOI}
+                />
+              </TabsContent>
+
+              <TabsContent value="plan" className="mt-0">
                 <TimelineView timeline={state.timeline} />
               </TabsContent>
 
