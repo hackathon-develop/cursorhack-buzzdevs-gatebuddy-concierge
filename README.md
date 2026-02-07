@@ -1,3 +1,10 @@
+***** Archibved *****
+
+this belongs to the hackathon result of https://github.com/hackathon-develop/cursorhack-buzzdevs
+
+
+
+
 # GateBuddy Concierge
 
 **An intelligent airport concierge web application that guides travelers through the airport with real-time recommendations, itinerary planning, and time-sensitive navigation.**
